@@ -1,4 +1,4 @@
-# **MAB (Mobilidade Acessível Brasileira**
+# **MAB (Mobilidade Acessível Brasileira)**
 
 # **Descrição**
 
