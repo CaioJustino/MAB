@@ -1,0 +1,59 @@
+#Classe Motorista
+
+class Motorista():
+  def __init__(self, cnh, veiculo):
+    Pessoa.__init__(self,cnh,veiculo,nome,cpf,idade,telefone)
+    self._cnh = cnh
+    self._veiculo = veiculo
+    self.motorista = []
+    self.viagem = []
+
+    @property
+    def cnh(self):
+      return self._cnh
+
+    @cnh.setter
+    def cnh(self,cnh):
+      self._cnh=cnh 
+
+    @property
+    def veiculo(self):
+      return self._veiculo
+
+    @veiculo.setter
+    def veiculo(self,veiculo):
+      self._veiculo=veiculo 
+
+  #def cadastrarM():
+    #self.motorista.append(self._nome,self._cpf,self._idade,self._telefone)
+    #for i in self.motorista:
+      #print(i)
+  
+  def editarM(self):
+    alterar = input("O que você deseja alterar? (nome, cpf, idade, telefone, cnh ou veiculo)")
+    if alterar == "nome":
+      nome1 = input("Novo nome:")
+      self.motorista.insert(1,nome1)
+      for i in self.motorista:
+        print(i)
+    if alterar == "cpf":
+      cpf1 = input("Novo cpf:")
+      self.motorista.insert(2,cpf1)
+      for i in self.motorista:
+        print(i)
+
+  def infoM(self):
+    self.motorista.append(self._nome,self._cpf,self._idade,self._telefone,self._cnh, self._veiculo)
+    for i in self.motorista:
+      print(i)
+  
+  def removerM(self):
+    self.motorista.remove(self._nome,self._cpf,,self._idade,self._telefone, self._cnh, self._veiculo)
+    for i in self.motorista:
+      print(i)
+  
+  def aceitar_viagem(self):
+    print("Viagem Aceita")
+
+  def cancelar_viagem():
+    print("Viagem Cancelada")
