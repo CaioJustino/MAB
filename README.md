@@ -7,3 +7,13 @@
 # **Objetivo**
 
   Fornecer viagens acessíveis aos PCDs (Pessoas com Deficiência).
+
+# **Funções de cada integrante**
+
+  Ana Paula - Classe Passageiro(Pessoa)
+  Caio - Classe Viagem
+  Diogo - Classe FormaPagamento
+  José Júnior - Classe Motorista(Pessoa)
+  Luiza - Classe Veiculo
+  Marta - Superclasse Pessoa
+  Yana - Classe Endereco
