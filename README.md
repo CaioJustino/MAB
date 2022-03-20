@@ -8,7 +8,7 @@
 
    Fornecer viagens acessíveis aos PCDs (Pessoas com Deficiência).
 
-# **Funções de cada integrante**
+# **Contribuições de cada integrante**
 
     Ana Paula - Classe Passageiro(Pessoa)
     Caio - Classe Viagem
@@ -17,3 +17,4 @@
     Luiza - Classe Veiculo
     Marta - Superclasse Pessoa
     Yana - Classe Endereco
+    Caio, Diogo e José Júnior - Interface Gráfica (PySimpleGUI)
