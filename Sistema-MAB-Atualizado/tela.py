@@ -1,8 +1,9 @@
+from tkinter import CENTER
 from turtle import color
 import PySimpleGUI as sg
 from classes import Pessoa as p, Endereco as ende, Passageiro as pa, Motorista as m, Veiculo as ve, Viagem as vi, FormaPagamento as pag, ValidarCPF as vcpf
 
-DIM1=(300,100)
+DIM1=(300,120)
 DIM2=(600,450)
 DIM3=(600,250)
 DIM4=(300,200)
@@ -13,9 +14,12 @@ sg.theme(THEME)
 # Páginas (Layout)
 
 def pagina1():
-	layout = [[sg.Text('Bem-vindo(a) ao MAB!', text_color='yellow')],
-				[sg.Text('Vocé é:')],
-				[sg.Button('Passageiro'),sg.Button('Motorista')]]
+	layout = [
+			[sg.Text('Bem-vindo(a) ao MAB!', text_color='yellow')],
+			[sg.Text('Vocé é:')],
+			[sg.Button('Passageiro'),sg.Button('Motorista')],
+			[sg.Image('logo-mab.png')]
+	]
 
 	return sg.Window('Início', layout,size=DIM1,element_justification='c',finalize=True)
 
@@ -37,7 +41,8 @@ def pagina2():
 				[sg.Text('Cidade:'),sg.InputText(size=40,key="-CIDADE-")],
 				[sg.Text('Estado:'),sg.InputText(size=40,key="-ESTADO-")],
 				[sg.Text('\n')],
-				[sg.Button('Enviar',key='-ENVIARPA-'),sg.Button('Cancelar',key='-CANCELAR-')]]
+				[sg.Button('Enviar',key='-ENVIARPA-'),sg.Button('Cancelar',key='-CANCELAR-'), sg.Push(), sg.Image('mab-logo.png')]
+				]
 
 	layout = [[pessoa,endereco]] 
 
@@ -61,7 +66,7 @@ def pagina3():
 				[sg.Text('Cidade:'),sg.InputText(size=40,key="-CIDADE-")],
 				[sg.Text('Estado:'),sg.InputText(size=40,key="-ESTADO-")],
 				[sg.Text('\n')],
-				[sg.Button('Próximo',key='-PROXIMO1-'),sg.Button('Cancelar',key='-CANCELAR-')]]
+				[sg.Button('Próximo',key='-PROXIMO1-'),sg.Button('Cancelar',key='-CANCELAR-'), sg.Push(), sg.Image('mab-logo.png')]]
 
 	layout = [[pessoa,endereco]] 
 
@@ -77,7 +82,7 @@ def pagina4():
 				[sg.Text('Renavam:'),sg.InputText(size=40,key="-RENAVAM-")],
 				[sg.Text('Chassi:'),sg.InputText(size=40,key="-CHASSI-")],
 				[sg.Text('\n')],
-				[sg.Button('Enviar',key='-ENVIARM-'),sg.Button('Cancelar',key='-CANCELAR-')]]
+				[sg.Button('Enviar',key='-ENVIARM-'),sg.Button('Cancelar',key='-CANCELAR-'), sg.Push(), sg.Image('mab-logo.png')]]
 
 	return sg.Window('Cadastro de Motorista', layout,size=DIM3,finalize=True)
 
@@ -88,7 +93,8 @@ def pagina5():
 				[sg.Text('\n')],
 				[sg.Button('Exibir Dados', key='-DADOSPA-'),sg.Button('Editar Dados', key='-EDITARPA-')],
 				[sg.Button('Pedir Viagem'),sg.Button('Excluir Conta', key='-EXCLUIRPA-')],
-				[sg.Button('Sair',key='-SAIR-')]]
+				[sg.Button('Sair',key='-SAIR-')], 
+				[sg.Push(), sg.Image('logo-mab.png'), sg.Push()]]
 
 	return sg.Window('Tela - Passageiro', layout,size=DIM4,finalize=True,element_justification='c')
 
@@ -110,7 +116,7 @@ def pagina6():
 				[sg.Text('Cidade:'),sg.InputText(size=40,key="-CIDADE2-")],
 				[sg.Text('Estado:'),sg.InputText(size=40,key="-ESTADO2-")],
 				[sg.Text('\n')],
-				[sg.Button('Editar',key='-EDITARPA2-'),sg.Button('Voltar',key='-BACKPA-')]]
+				[sg.Button('Editar',key='-EDITARPA2-'),sg.Button('Voltar',key='-BACKPA-'), sg.Push(), sg.Image('mab-logo.png')]]
 
 	layout = [[pessoa,endereco]] 
 
@@ -122,8 +128,9 @@ def pagina7():
 	layout = [[sg.Text('Olá, o que você deseja fazer?', text_color='yellow')],
 				[sg.Text('\n')],
 				[sg.Button('Exibir Dados', key='-DADOSM-'),sg.Button('Editar Dados', key='-EDITARM-')],
-				[sg.Button('Aceitar Viagem'),sg.Button('Excluir Conta', key='-EXCLUIRM-'),],
-				[sg.Button('Sair',key='-SAIR-')]]
+				[sg.Button('Aceitar Viagem'),sg.Button('Excluir Conta', key='-EXCLUIRM-')],
+				[sg.Button('Sair',key='-SAIR-')], 
+				[sg.Push(), sg.Image('logo-mab.png'), sg.Push()]]
 
 	return sg.Window('Tela - Motorista', layout,size=DIM4,finalize=True,element_justification='c')
 
@@ -145,7 +152,7 @@ def pagina8():
 				[sg.Text('Cidade:'),sg.InputText(size=40,key="-CIDADE2-")],
 				[sg.Text('Estado:'),sg.InputText(size=40,key="-ESTADO2-")],
 				[sg.Text('\n')],
-				[sg.Button('Próximo',key='-PROXIMO2-'),sg.Button('Voltar',key='-BACKM-')]]
+				[sg.Button('Próximo',key='-PROXIMO2-'),sg.Button('Voltar',key='-BACKM-'), sg.Push(), sg.Image('mab-logo.png')]]
 
 	layout = [[pessoa,endereco]] 
 
@@ -161,7 +168,7 @@ def pagina9():
 				[sg.Text('Renavam:'),sg.InputText(size=40,key="-RENAVAM2-")],
 				[sg.Text('Chassi:'),sg.InputText(size=40,key="-CHASSI2-")],
 				[sg.Text('\n')],
-				[sg.Button('Editar',key='-EDITARM2-'),sg.Button('Cancelar',key='-CANCELAR-')]]
+				[sg.Button('Editar',key='-EDITARM2-'),sg.Button('Cancelar',key='-CANCELAR-'), sg.Push(), sg.Image('mab-logo.png')]]
 
 	return sg.Window('Editando Dados - Motorista', layout,size=DIM3,finalize=True)
 
@@ -173,14 +180,15 @@ def pagina10():
 				[sg.Text('Destino:'),sg.InputText(size=40,key="-DESTIN-")],
 				[sg.Text('Forma de Pagamento:'),sg.InputText(size=40,key="-PAG-")],
 				[sg.Text('\n')],
-				[sg.Button('Enviar',key='-ENVIARVI-'),sg.Button('Voltar',key='-BACKPA2-')]]
+				[sg.Button('Enviar',key='-ENVIARVI-'),sg.Button('Voltar',key='-BACKPA2-'), sg.Push(), sg.Image('mab-logo.png')]]
 
 	return sg.Window('Pedir Viagem', layout,size=DIM4,finalize=True)
 
 def pagina11():
 	layout = [[sg.Text('Opções de Viagem', text_color='yellow')],
 				[sg.Text('\n')],
-				[sg.Button('Exibir Dados',key='-DADOSVI-'),sg.Button('Cancelar',key='-CANCELVIPA-')]]
+				[sg.Button('Exibir Dados',key='-DADOSVI-'),sg.Button('Cancelar',key='-CANCELVIPA-')],
+				[sg.Push(), sg.Image('logo-mab.png'), sg.Push()]]
 
 	return sg.Window('Tela - Viagem', layout,size=DIM5,finalize=True,element_justification='c')
 
