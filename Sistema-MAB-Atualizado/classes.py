@@ -7,29 +7,29 @@ class Endereco():
         self._cidade = cidade
         self._estado = estado
 
-        @property
-        def rua(self):
-            return self._rua
+    @property
+    def rua(self):
+        return self._rua
 
-        @property
-        def numero(self):
-            return self._numero
+    @property
+    def numero(self):
+        return self._numero
 
-        @property
-        def cep(self):
-            return self._cep
+    @property
+    def cep(self):
+        return self._cep
 
-        @property
-        def bairro(self):
-            return self._bairro
+    @property
+    def bairro(self):
+        return self._bairro
 
-        @property
-        def cidade(self):
-            return self._cidade
-        
-        @property
-        def estado(self):
-            return self._estado
+    @property
+    def cidade(self):
+        return self._cidade
+
+    @property
+    def estado(self):
+        return self._estado
     
     def infoE(self):
         return f'Rua: {self._rua}\nNúmero: {self._numero}\nCEP: {self._cep}\nBairro: {self._bairro}\nCidade: {self._cidade}\nEstado: {self._estado}'
@@ -47,13 +47,13 @@ class ValidarCPF():
         self.__acess_cpf = None
         self._validado = False
 
-        @property
-        def acess_cpf(self):
-            return self.__acess_cpf
-        
-        @acess_cpf.setter
-        def acess_cpf(self,acess_cpf):
-            self.__acess_cpf = acess_cpf
+    @property
+    def acess_cpf(self):
+        return self.__acess_cpf
+
+    @acess_cpf.setter
+    def acess_cpf(self,acess_cpf):
+        self.__acess_cpf = acess_cpf
 
     def validar_cpf(self):
         self.__acess_cpf = [int(char) for char in self.__acess_cpf if char.isdigit()]
@@ -83,21 +83,21 @@ class Pessoa():
         self._telefone = telefone
         self._enderecos = []
     
-        @property
-        def nome(self):
-            return self._nome
+    @property
+    def nome(self):
+        return self._nome
 
-        @property
-        def cpf(self):
-            return self._cpf
+    @property
+    def cpf(self):
+        return self._cpf
 
-        @property
-        def idade(self):
-            return self._idade
+    @property
+    def idade(self):
+        return self._idade
 
-        @property
-        def telefone(self):
-            return self._telefone
+    @property
+    def telefone(self):
+        return self._telefone
 
     def addP(self):
         pass
@@ -133,41 +133,41 @@ class Passageiro(Pessoa):
         self.__deficiencia = deficiencia
         self._listaPa = []
     
-        @property
-        def deficiencia(self):
-            return self.__deficiencia
-        
-        @property
-        def acess_Vi(self):
-            return self.__acess_Vi
-        
-        @acess_Vi.setter
-        def acess_Vi(self,acess_Vi):
-            self.__acess_Vi = acess_Vi
+    @property
+    def deficiencia(self):
+        return self.__deficiencia
 
-        @property
-        def acess_embarque(self):
-            return self.__acess_embarque
+    @property
+    def acess_Vi(self):
+        return self.__acess_Vi
 
-        @acess_embarque.setter
-        def acess_embarque(self, acess_embarque):
-            self.__acess_embarque = acess_embarque
-        
-        @property
-        def acess_destino(self):
-            return self.__acess_destino
-        
-        @acess_destino.setter
-        def acess_destino(self, acess_destino):
-            self.__acess_destino = acess_destino
+    @acess_Vi.setter
+    def acess_Vi(self,acess_Vi):
+        self.__acess_Vi = acess_Vi
 
-        @property
-        def acess_pag(self):
-            return self.__acess_pag
-        
-        @acess_pag.setter
-        def acess_pag(self, acess_pag):
-            self.__acess_pag = acess_pag
+    @property
+    def acess_embarque(self):
+        return self.__acess_embarque
+
+    @acess_embarque.setter
+    def acess_embarque(self, acess_embarque):
+        self.__acess_embarque = acess_embarque
+
+    @property
+    def acess_destino(self):
+        return self.__acess_destino
+
+    @acess_destino.setter
+    def acess_destino(self, acess_destino):
+        self.__acess_destino = acess_destino
+
+    @property
+    def acess_pag(self):
+        return self.__acess_pag
+
+    @acess_pag.setter
+    def acess_pag(self, acess_pag):
+        self.__acess_pag = acess_pag
 
     def infoPa(self): # O que o Usuário ver
         return f'Nome: {self._nome}\nCPF: {self._cpf}\nIdade: {self._idade}\nTelefone: {self._telefone}\nTipo de Deficiência: {self.__deficiencia}'
@@ -207,25 +207,25 @@ class Veiculo():
         self._renavam = renavam
         self._chassi = chassi
        
-        @property
-        def modelo(self):
-            return self._modelo
+    @property
+    def modelo(self):
+        return self._modelo
 
-        @property
-        def cor(self):
-            return self._cor
+    @property
+    def cor(self):
+        return self._cor
 
-        @property
-        def placa(self):
-            return self._placa
+    @property
+    def placa(self):
+        return self._placa
 
-        @property
-        def renavam(self):
-            return self._renavam
+    @property
+    def renavam(self):
+        return self._renavam
 
-        @property
-        def chassi(self):
-            return self._chassi
+    @property
+    def chassi(self):
+        return self._chassi
 
     def infoVe(self): # O que o Usuário ver    
         return f'Modelo: {self._modelo}\nCor: {self._cor}\nPlaca: {self._placa}\nRenavam: {self._renavam}\nChassi: {self._chassi}'
@@ -249,17 +249,17 @@ class Motorista(Pessoa):
         self._listaM = []
         self._viAceitas = []
 
-        @property
-        def cnh(self):
-            return self.__cnh
+    @property
+    def cnh(self):
+        return self.__cnh
 
-        @property
-        def acess_Vi(self):
-            return self.__acess_Vi
-        
-        @acess_Vi.setter
-        def acess_Vi(self,acess_Vi):
-            self.__acess_Vi = acess_Vi
+    @property
+    def acess_Vi(self):
+        return self.__acess_Vi
+
+    @acess_Vi.setter
+    def acess_Vi(self,acess_Vi):
+        self.__acess_Vi = acess_Vi
     
     def infoM(self): # O que o Usuário ver      
         return f'Nome: {self._nome}\nCPF: {self._cpf}\nIdade: {self._idade}\nTelefone: {self._telefone}\nCNH: {self.__cnh}'
@@ -305,45 +305,45 @@ class Viagem():
         self.__veiculo = None
         self._listaVi = []
 
-        @property
-        def embarque(self):
-            return self._embarque
-        
-        @property
-        def destino(self):
-            return self._destino
+    @property
+    def embarque(self):
+        return self._embarque
 
-        @property
-        def forma_pag(self):
-            return self.__forma_pag
+    @property
+    def destino(self):
+        return self._destino
 
-        @forma_pag.setter
-        def forma_pag(self, forma_pag):
-            self.__forma_pag = forma_pag
+    @property
+    def forma_pag(self):
+        return self.__forma_pag
 
-        @property
-        def passageiro(self):
-            return self.__passageiro
-        
-        @passageiro.setter
-        def passageiro(self, passageiro):
-            self.__passageiro = passageiro
-        
-        @property
-        def motorista(self):
-            return self.__motorista
-        
-        @motorista.setter
-        def motorista(self, motorista):
-            self.__motorista = motorista
-        
-        @property
-        def veiculo(self):
-            return self.__veiculo
-        
-        @veiculo.setter
-        def veiculo(self, veiculo):
-            self.__veiculo = veiculo
+    @forma_pag.setter
+    def forma_pag(self, forma_pag):
+        self.__forma_pag = forma_pag
+
+    @property
+    def passageiro(self):
+        return self.__passageiro
+
+    @passageiro.setter
+    def passageiro(self, passageiro):
+        self.__passageiro = passageiro
+
+    @property
+    def motorista(self):
+        return self.__motorista
+
+    @motorista.setter
+    def motorista(self, motorista):
+        self.__motorista = motorista
+
+    @property
+    def veiculo(self):
+        return self.__veiculo
+
+    @veiculo.setter
+    def veiculo(self, veiculo):
+        self.__veiculo = veiculo
 
     def infoVi(self):
         return f'Embarque: {self._embarque}\nDestino: {self._destino}'
