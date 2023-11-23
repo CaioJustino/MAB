@@ -1,0 +1,30 @@
+{% extends 'layouts/viagem.html' %}
+
+{% block title %}
+<title>SOLICITAR VIAGEM - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<div id="solicitar-vi">
+  <form id="solicitar-cont" method="post" action="{{url_for('vi.solicitar_vi')}}">
+    <div class="d-block col-12">
+      <label class="container-fluid">Embarque:</label>
+      <input class="container-fluid" type="text" id="search-place1" name="embarque" placeholder="Digite o seu local de Embarque" autocomplete="street-address" required>
+    </div>
+    <div class="d-block col-12">
+      <label class="container-fluid mt-4">Desembarque:</label>
+      <input class="container-fluid" type="text" id="search-place2" name="desembarque" placeholder="Digite o seu local de Desembarque" autocomplete="street-address" required>
+    </div>
+    <div class="d-block col-12">
+      <label class="container-fluid mt-4">Pagamento:</label>
+      <select class="container-fluid" name="tipo" required>
+        <option value="">--Selecione a sua forma de Pagamento--</option>
+        <option value="pix">PIX</option>
+        <option value="f">Físico</option>
+      </select><br>
+    </div>
+    <div id="btns" class="d-grid d-md-block">
+      <button type="submit">SOLICITAR</button>
+    </div>
+</div>
+{% endblock %}

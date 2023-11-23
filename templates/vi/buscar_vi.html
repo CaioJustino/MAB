@@ -1,0 +1,43 @@
+{% extends 'layouts/viagem.html' %}
+
+{% block title %}
+<title>BUSCAR VIAGEM - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<div id="acompanhar-vi">
+  <div id="acompanhar-vi-status">
+    <p class="text-center py-2">Buscando viagem...</p>
+  </div>
+  <div id="acompanhar-vi-cont" class="row justify-content mt-3">
+    <h3 class="d-block col-12">VIAGEM</h3>
+    {% if vi_count == 1 %}
+    <div class="d-inline-block col-6">
+      <label class="container-fluid">Embarque:</label>
+      <input class="container-fluid" value="{{viagem.embarque}}" disabled>
+    </div>
+    <div class="d-inline-block col-6">
+      <label class="container-fluid">Desembarque:</label>
+      <input class="container-fluid" value="{{viagem.desembarque}}" disabled>
+    </div>
+    <div class="d-inline-block col-6">
+      <label class="container-fluid mt-4">Pagamento:</label>
+      <input class="container-fluid" value="{% if pag.tipo == 'pix' %}PIX{% endif %}{% if pag.tipo == 'f' %}Físico{% endif %}" disabled>
+    </div>
+    <div class="d-inline-block col-6">
+      <label class="container-fluid mt-4">Valor:</label>
+      <input class="container-fluid" value="R$ {{pag.valor}}" disabled>
+    </div>
+    <div id="btns" class="d-grid d-md-block">
+      <form action="{{url_for('vi.aceitar_vi', id=viagem.id)}}" method="post">
+        <button type="submit">ACEITAR</button>
+        <a href="/motorista/perfil"><button id="cancelar-vi-btn">VOLTAR</button>
+      </form>
+    </div>
+    {% endif %}
+    {% if vi_count == 0 %}
+      <p class="text-center">Nenhuma viagem encontrada.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'layouts/pass/painel.html' %}
+
+{% block title %}
+<title>PERFIL - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<div id="nav-painel" class="col-12 me-0 px-0">
+  <div id="nav-painel-cont" class="mx-auto">
+    <div class="d-block">
+      <h1 id="page-title" class="text-center">INÍCIO</h1>
+    </div>
+    <div id="topics" class="container-fluid px-0 mx-0">
+      <div id="perfil-vi-atalho">
+        <a href="{{url_for('vi.solicitar_vi')}}" tabindex="-1">
+          <button class="d-block mx-auto">SOLICITAR VIAGEM</button>
+        </a>
+      </div>
+      <div id="perfil-vi-atalho-2" class="col-12">
+        <div id="historico">
+          <p id="title" class="text-center">Última Viagem</p>
+          {% if vi_count == 0 %}
+            <p id="empty-historic" class="text-center mt-5">Nenhuma viagem encontrada.</p>
+          {% endif %}
+          {% if vi_count != 0 %}
+            {% for vi in viagem %}
+              <div id="historico-item" class="container-fluid mx-auto">
+                <p id="data_hora"><span>{{vi.data_hora.strftime("%d/%m/%Y - %H:%M")}}</span></p>
+                <p><b>De:</b> {{vi.embarque}}</p>
+                <p><b>Para:</b> {{vi.desembarque}}</p>
+                {% if vi.status == 0 and vi.aceitacao == 0 %}
+                  <p id="cancelada" class="m-0">Cancelada</p>
+                {% endif %}
+                {% if vi.status == 0 and vi.aceitacao == 1 %}
+                  <p id="finalizada" class="m-0">Finalizada</p>
+                {% endif %}
+              </div>
+            {% endfor %}
+            <p class="text-center m-0"><a href="{{url_for('pass.historico')}}" tabindex="-1">VER MAIS +</a></p>
+          {% endif %}
+        </div>
+        <div id="alerta">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

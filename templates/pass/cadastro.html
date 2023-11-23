@@ -1,0 +1,50 @@
+{% extends 'layouts/form.html' %}
+
+{% block title %}
+<title>CADASTRO - PASSAGEIRO - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<body class="body-form">
+  <div class="crud" id="pass">
+    <form action="{{url_for('pass.cadastro')}}" method="post" class="mx-auto">
+      {% with mesg = get_flashed_messages(with_categories=True) %}
+        {% for category, message in mesg %}
+          {% if mesg %}
+            <div class="alert alert-{{category}} mb-0" role="alert">
+              {{message}}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endwith %}
+      <br>
+      <h3 class="text-center">PASSAGEIRO</h3>
+      <label class="container-fluid">Nome:</label>
+      <input class="container-fluid" type="text" name="nome" placeholder="Digite o seu Nome" required><br>
+      <label class="container-fluid mt-4">E-mail:</label>
+      <input class="container-fluid" type="email" name="email" placeholder="Digite o seu E-mail" required><br>
+      <label class="container-fluid mt-4">Data de Nascimento:</label>
+      <input class="container-fluid" type="date" name="data_nasc" placeholder="Digite a sua Data de Nascimento" required><br>
+      <label class="container-fluid mt-4">Telefone:</label>
+      <input class="container-fluid" type="number" name="tel" placeholder="Digite o seu Telefone" required><br>
+      <label class="container-fluid mt-4">Grau de Deficiência Visual:</label>
+      <select class="container-fluid mt-4" name="deficiencia" required>
+        <option value="">--Selecione o seu Grau de Deficiência Visual--</option>
+        <option value="v1">Leve</option>
+        <option value="v2">Moderado</option>
+        <option value="v3">Alto</option>
+      </select><br>
+      <label class="container-fluid mt-4">Senha:</label>
+      <input class="container-fluid" type="password" name="senha" placeholder="Digite uma Senha" required><br>
+      <label class="container-fluid mt-4">Confirmar Senha:</label>
+      <input class="container-fluid" type="password" name="csenha" placeholder="Confirme sua Senha" required><br>
+      <div class="d-grid gap-2">
+          <button type="submit" class="mt-5">
+              CADASTRAR
+          </button>
+      </div>
+    </form>
+  </div>
+  <script src="/static/assets/js/app.js"></script>
+</body>
+{% endblock %}

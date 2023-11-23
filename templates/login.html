@@ -1,0 +1,37 @@
+{% extends 'layouts/form.html' %}
+
+{% block title %}
+<title>LOGIN - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<body class="body-form" id="body-login">
+  <div class="crud" id="login">
+    <form action="{{url_for('user.login')}}" method="post" class="mx-auto">
+      {% with mesg = get_flashed_messages(with_categories=True) %}
+        {% for category, message in mesg %}
+          {% if mesg %}
+            <div class="alert alert-{{category}} mb-4" role="alert">
+              {{message}}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endwith %}
+      <br>
+      <h3 class="text-center">LOGIN</h3>
+      <label class="container-fluid">E-mail:</label>
+      <input class="container-fluid" type="email" name="email" placeholder="Digite o seu E-mail" required><br>
+      <label class="container-fluid mt-4">Senha:</label>
+      <input class="container-fluid" type="password" name="senha" placeholder="Digite a sua Senha" required><br>
+      <div class="d-grid gap-2">
+          <button type="submit" class="mt-5">
+              ENTRAR
+          </button>
+      </div>
+      <p class="text-center mt-5">OU ENTRE COM</p>
+      <a id="oauth-google" class="mx-auto d-block" href="/login/google" tabindex="-1"><img src="/static/assets/img/google-icon.svg" alt="Entrar com o Google" tabindex="0"></a>
+    </form>
+  </div>
+  <script src="/static/assets/js/app.js"></script>
+</body>
+{% endblock %}

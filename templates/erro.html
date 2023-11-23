@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+<title>ERRO {{c}} - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<div id="erro-pag" class="mx-auto">
+  <div class="row justify-content container-fluid">
+    <div class="col-6">
+      <h1>{{c}}</h1>
+      <p id="p2-erro">{{de}}</p>
+      <button onclick="javascript:history.back()">VOLTAR</button>
+    </div>
+    <div class="col-6">
+      <img class="float-end" src="/static/assets/img/erro_.png">
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+<title>HOME - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<div id="top-home">
+  <div id="top-home-cont" class="mx-auto">
+    <h3 tabindex="0">Venha conhecer o <span>MAB</span></h3>
+    <p tabindex="0">O projeto MAB (Mobilidade Acessível Brasileira) surgiu com o objetivo de salientar a importância do transporte privado de qualidade para pessoas com deficiência visual. Este sistema web foi originado por meio de um trabalho interdisciplinar, em que produzimos uma revista sobre a mobilidade brasileira e sua acessibilidade, sendo desenvolvido desde 2023.</p>
+  </div>
+</div>
+<div id="middle-home">
+  <p id="cadastros">De que forma você<br>pretende se conectar?</p>
+  <div id="btns" class="d-grid d-md-block">
+    <a href="{{url_for('moto.cadastro')}}" tabindex="-1"><button class="float-start" type="button">MOTORISTA</button></a>
+    <a href="{{url_for('pass.cadastro')}}" tabindex="-1"><button class="float-end" type="button">PASSAGEIRO</button></a>
+  </div>
+</div>
+{% endblock %}

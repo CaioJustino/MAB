@@ -1,0 +1,30 @@
+{% extends 'layouts/pass/painel.html' %}
+
+{% block title %}
+<title>ALTERAR SENHA - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<div id="nav-painel" class="col-12 me-0 px-0">
+  <div id="nav-painel-cont" class="mx-auto">
+    <div id="topics" class="container-fluid px-0 mx-0">
+      <div class="crud" id="pass">
+        <form action="{{url_for('pass.update_senha')}}" method="post" class="mx-auto">
+          <div class="d-block">
+            <h1 id="page-title" class="text-center">ALTERAR SENHA</h1>
+          </div>
+          <label class="container-fluid mt-5">Nova Senha:</label>
+          <input class="container-fluid" type="password" name="senha" placeholder="Digite uma Nova Senha" required><br>
+          <label class="container-fluid mt-4">Confirmar Senha:</label>
+          <input class="container-fluid" type="password" name="csenha" placeholder="Confirmar Senha" required><br>
+          <div class="d-grid gap-2">
+            <button type="submit" class="mt-5">
+                ATUALIZAR
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

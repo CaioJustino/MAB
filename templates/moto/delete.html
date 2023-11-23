@@ -1,0 +1,27 @@
+{% extends 'layouts/moto/painel.html' %}
+
+{% block title %}
+<title>DESATIVAR CONTA - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<div id="nav-painel" class="col-12 me-0 px-0">
+  <div id="nav-painel-cont" class="mx-auto">
+    <div id="topics" class="container-fluid px-0 mx-0">
+      <div class="crud" id="moto">
+        <form action="{{url_for('moto.delete')}}" method="post" class="mx-auto">
+          <div class="d-block">
+            <h1 id="page-title" class="text-center">DESATIVAR</h1>
+          </div>
+          <p id="del-p" class="text-center mt-5">Deseja mesmo desativar o seu cadastro?</p><br>
+          <div class="d-grid gap-2">
+            <button type="submit" class="mt-5">
+                DESATIVAR
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

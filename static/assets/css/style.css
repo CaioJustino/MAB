@@ -1,0 +1,1314 @@
+/* GLOBAL */
+
+:root {
+  /* CORES */
+  --color1: #3886C1;
+  --color2: #164F7A;
+  --color3: #90BCDD;
+  --color4: #2279bb;
+  --color5: #7F7F7F;
+  --color6: #202020;
+  --color8: #303030;
+  --color9: #EEEEEE;
+  --color10: #d6d6d6;
+  --color11: #d05353;
+  --color12: #a9a7a7;
+  --color13: #1B3760;
+  --color14: #FAFCFE;
+  --color15: #747474;
+  --color16: #000000;
+  --color17: #2BB76A;
+}
+
+html {
+  background-color: var(--color14);
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+.body-form {
+  background-color: #3886C1;
+  width: 100%;
+  height: auto;
+}
+
+/* PÁGINA - GERAIS */
+
+/* NAVBAR */
+
+#nav-home {
+  background-color: var(--color14);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 24px;
+}
+
+#nav-home-cont {
+  max-width: 1200px;
+  padding: 15px 0px;
+}
+
+#nav-home-cont .nav-item a {
+  position: relative;
+  color: var(--color12);
+  transition: 0.5s;
+}
+
+#nav-home-cont .nav-item a::after {
+  content: " ";
+  height: 2px;
+  width: 0%;
+  margin: auto;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color2);
+}
+
+#nav-home-cont .nav-item a:hover {
+  color: var(--color2);
+  transition: 0.5s;
+}
+
+#nav-home-cont .nav-item a:hover::after {
+  width: 100%;
+  transition: 0.5s;
+}
+
+/* FOOTER */
+
+#footer-home {
+  background-color: var(--color4);
+  color: var(--color14);
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+#footer-home #top-footer {
+  max-width: 900px;
+}
+
+#top-footer {
+  padding-bottom: 80px;
+}
+
+#bottom-footer {
+  padding-top: 80px;
+  border-top: 1px solid var(--color10);
+}
+
+#top-footer #title-footer {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+#top-footer #footer-p, #bottom-footer #footer-p {
+  font-size: 24px;
+}
+
+#footer-p {
+  margin: 0;
+}
+
+/* PÁGINA - HOME */
+
+/* TOP-HOME */
+
+#top-home {
+  background-color: var(--color1); 
+}
+
+#top-home-cont {
+  padding: 135px 0px;
+  margin: 0 auto;
+  max-width: 1200px;
+  color: var(--color14);
+  font-family: 'Lato', sans-serif;
+}
+
+#top-home-cont h3 {
+  margin-bottom: 60px;
+  font-weight: 400;
+  font-size: 44px;
+}
+
+#top-home-cont h3 span {
+  color: var(--color14);
+  font-weight: 700;  
+}
+
+#top-home-cont p {
+  font-size: 24px;
+  margin: 0px;
+}
+
+/* MIDDLE-HOME */
+
+#middle-home {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background-color: var(--color14);
+  height: 560px;
+}
+
+#middle-home p {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  color: var(--color2);
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+#middle-home #btns {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#middle-home button {
+  background-color: var(--color2);
+  padding: 20px 60px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 30px;
+  font-weight: 500px;
+  color: var(--color14);
+  border: none;
+  transition: 0.5s;
+}
+
+#middle-home button:hover {
+  background-color: var(--color1);
+  padding: 20px 60px;
+  font-size: 36px;
+  transition: 0.5s;
+}
+
+/* PÁGINA - SUPORTE */
+
+#top-sup {
+  background-color: var(--color1); 
+}
+
+#top-sup-cont {
+  padding-top: 60px;
+  margin: 0px;
+  max-width: 570px;
+  color: var(--color14);
+  font-family: 'Lato', sans-serif;
+}
+
+#top-sup-cont h3 {
+  margin: 0px;
+  font-weight: 700;
+  font-size: 72px;
+  font-family: 'Ubuntu', sans-serif;
+  color: var(--color14);
+}
+
+/* PÁGINA DE ERRO */ 
+
+#erro-pag {
+  max-width: 1200px;
+  margin: 80px 0px;
+}
+
+#erro-pag h1 {
+  color: var(--color2);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size: 108px;
+  margin: 0px;
+}
+
+#erro-pag #p2-erro{
+  color: var(--color6);
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  margin: 0px;
+  margin-top: 40px;
+  font-size: 24px; 
+}
+
+#erro-pag img{
+  width: 500px;
+  vertical-align: middle;
+}
+
+#erro-pag button {
+  background-color: var(--color2);
+  font-family:'Ubuntu', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color14);
+  padding: 15px 40px;
+  margin-top: 60px;
+  border: none;
+  transition: 0.5s; 
+}
+
+#erro-pag button:hover {
+  background-color: var(--color1);
+  transition: 0.5s; 
+}
+
+/* PÁGINAS - FORMULÁRIOS PRINCIPAIS */
+
+.crud form {
+  width: 400px;
+  background-color: var(--color14);
+  margin: 0;
+  padding: 50px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  transition: 0.5s;
+}
+
+.crud h3 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 50px;
+  color: var(--color6);
+  transition: 0.5s;
+}
+
+.crud label {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 0;
+  color: var(--color12);
+}
+
+.crud input {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--color6);
+  border: 0;
+  border-bottom: 1px solid var(--color12);
+  padding: 10px 0px 10px 7px;
+  outline: none;
+  transition: 0.5s;
+  background-color: transparent;
+}
+
+.crud input:-webkit-autofill,
+.crud input:-webkit-autofill:hover,
+.crud input:-webkit-autofill:focus,
+.crud input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: var(--color14); 
+}
+
+.crud input::placeholder {
+  font-size: 20px;
+  color: var(--color6);
+  font-family: "Lato", sans-serif;
+  transition: 0.5s;
+}
+
+.crud input:focus {
+  border: none;
+  outline: 1px solid var(--color6);
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+.crud input:focus::placeholder {
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+.crud select {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--color6);
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color12);
+  padding: 10px 0px 10px 7px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: 0.5s;
+}
+
+.crud select::placeholder {
+  font-size: 20px;
+  color: var(--color6);
+  font-family: "Lato", sans-serif;
+  transition: 0.5s;
+}
+
+.crud select:focus {
+  border: none;
+  outline: 1px solid var(--color6);
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+.crud select:focus::placeholder {
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+.crud form input::-webkit-outer-spin-button,
+.crud form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.crud form input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.crud button {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--color14);
+  border: none;
+  background-color: var(--color1);
+  padding: 10px 0px;
+  transition: 0.5s;
+}
+
+.crud button:focus {
+  transition: 0.5s;
+}
+
+.crud button:hover {
+  background-color: var(--color2);
+  padding: 12px 0px;
+  font-size: 26px;
+  transition: 0.5s;
+}
+
+.crud p {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--color6);
+  transition: 0.5s;
+}
+
+.crud a, .crud a img {
+  width: 40px;
+  transition: 0.5s;
+}
+
+.crud a:focus {
+  outline: 3px solid var(--color6);
+  transition: 0.5s;
+}
+
+/* PÁGINAS - LOGIN */
+
+#body-login {
+  height: 100%;
+}
+
+#login form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/* PÁGINAS - CADASTRO */
+
+#pass, #moto {
+  padding: 80px 0px;
+}
+
+#pass form, #moto form {
+  width: 550px;
+}
+
+#pass form #del-p, #moto form #del-p {
+  font-size: 20px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+/* MOTORISTA */
+
+#moto form #part-2 {
+  display: none;
+  transition: 0.5s;
+}
+
+#moto form #part-2 button {
+  width: 200px;
+  margin: 0 auto;
+}
+
+/* PÁGINAS - USUÁRIOS */
+
+/* NAVBAR - PAINEL */
+
+#nav-painel-main {
+  background-color: var(--color14);
+}
+
+#nav-painel-menu {
+  background-color: var(--color4);
+  width: 100px;
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 100vh;
+  transition: all 1s;
+}
+
+#nav-painel-menu::-webkit-scrollbar {
+  width: 10px;
+  display: none;
+}
+
+#nav-painel-menu::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+#nav-painel-menu::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-image: linear-gradient(180deg, var(--color10) 0%, var(--color10) 100%);
+}
+
+#nav-painel-menu:hover::-webkit-scrollbar {
+  display: block;
+}
+
+#nav-painel-menu:hover {
+  width: 320px;
+  transition: all 1s;
+}
+
+#nav-painel-menu-mb {
+  position: relative;
+  vertical-align: middle;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  float: left;
+  display: none;
+  cursor: pointer;
+}
+
+#nav-painel-menu-cont {
+  padding: 50px 0px;
+}
+
+#nav-painel-menu #logo img {
+  margin-bottom: 50px;
+  width: 80px;
+}
+
+#nav-painel-menu #nav-item {
+  padding-top: 16px;
+  padding-bottom: 12px;
+  width: 250px;
+  margin-left: 32px;
+  display: table;
+}
+
+#nav-painel-menu #nav-item a {
+  text-decoration: none;
+  color: none;
+}
+
+#nav-painel-menu #nav-item p {
+  font-size: 20px;
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  color: var(--color14);
+  vertical-align: middle;
+  margin-bottom: 0px;
+  transition: 0.5s;
+}
+
+.logout-item {
+  margin-top: 150px;
+}
+
+/* PAINEL - GERAL */
+
+#nav-painel {
+  background-color: var(--color14);
+  position: absolute;
+}
+
+#nav-painel-cont {
+  max-width: 1100px;
+  margin: 90px 0;
+}
+
+#nav-painel #name-user {
+  margin-top: 70px;
+}
+
+#nav-painel #name-user p {
+  font-family: "Lato", sans-serif;
+  font-size: 30px;
+  color: var(--color15);
+  margin-top: 3px;
+}
+
+#nav-painel #page-title {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: var(--color6);
+}
+
+#topics .crud {
+  padding: 0px;
+}
+
+/* PAINEL - TABELAS */
+
+#search {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: var(--color1);
+    border: none;
+    border-bottom: 2px solid var(--color5);
+    padding: 5px;
+    outline: none;
+    transition: 0.5s;
+    background: none;
+    width: 100%;
+    padding: 8px 10px 8px 10px;
+}
+
+#search:focus {
+    color: var(--color1);
+    border-bottom: 2px solid var(--color6);
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+#search:focus::placeholder {
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+#search::placeholder {
+    font-size: 16px;
+    color: var(--color3);
+    font-family: "Open Sans", sans-serif;
+}
+
+#topics {
+    margin-top: 100px;
+    margin-bottom: 250px;
+}
+
+#topics #topics-cont {
+    background-color: var(--color2);
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.25);
+    padding: 50px;
+}
+
+#topics #subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--color4);
+    margin-bottom: 0px;
+}
+
+#topics #subtitle svg {
+    margin-bottom: 5px;
+}
+
+#topics #topics-cont table  {
+    font-family: 'Open sans', sans-serif;
+    width: 100%;
+}
+
+#topics #topics-cont table thead th {
+    color: var(--color7);
+    font-weight: 600;
+    font-size: 18px;
+    border-bottom: 0.5px solid var(--color5);
+}
+
+#topics #topics-cont table tbody th {
+    background-color: var(--color2);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color3);
+    border-bottom: 0.5px solid var(--color5);
+    vertical-align: middle;
+}
+
+#topics #topics-cont table tbody a {
+    text-decoration: none;
+    color: #3d6bc7;
+}
+
+#add-user-btn {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--color2);
+    background-color: var(--color8);
+    border: none;
+    padding: 8px 12px 6px 12px;
+    transition: 0.5s;
+}
+
+#add-user-btn svg {
+    padding-bottom: 4px;
+}
+
+#add-user-btn:hover {
+    font-size: 20px;
+    padding: 10px 14px 8px 14px;
+    transition: 0.5s;
+}
+
+#att-icon, #del-icon, #ats-icon {
+    cursor: pointer;
+}
+
+/* POP-UPS COM FORMULÁRIOS */
+
+.crud_pop_up {
+    display: none;
+}
+
+.crud_pop_up form {
+    width: 400px;
+    background-color: var(--color2);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 80px;
+    padding: 50px;
+    box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.25);
+}
+
+.crud_pop_up form h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.crud_pop_up form label {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--color10);
+}
+
+.crud_pop_up form input {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: var(--color1);
+    border: none;
+    border-bottom: 2px solid var(--color5);
+    padding: 5px;
+    outline: none;
+    transition: 0.5s;
+    background: none;
+    padding: 12px 10px 12px 10px;
+}
+
+.crud_pop_up form input[type=file]  {  
+    background-image: url('/img/icons/up-file-icon.svg');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 50px;
+}
+
+.crud_pop_up form input[type=file]::file-selector-button  {  
+    display: none;
+}
+
+.crud_pop_up form input::placeholder {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: var(--color3);
+}
+
+.crud_pop_up form input:focus {
+    border-bottom: 2px solid var(--color6);
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+.crud_pop_up form input:focus::placeholder {
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+.crud_pop_up input:-webkit-autofill,
+.crud_pop_up input:-webkit-autofill:hover,
+.crud_pop_up input:-webkit-autofill:focus,
+.crud_pop_up input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.crud_pop_up form select {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: var(--color1);
+    border: none;
+    border-radius: 0;
+    outline: none;
+    border-bottom: 2px solid var(--color5);
+    transition: 0.5s;
+    background: none;
+    padding: 12px 10px 12px 10px;
+}
+
+.crud_pop_up form select:focus {
+    box-shadow: none;
+    border-bottom: 2px solid var(--color6);
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+.crud_pop_up form textarea {
+    color: var(--color1);
+    border: none;
+    border-bottom: 2px solid var(--color5);
+    padding: 5px;
+    outline: none;
+    transition: 0.5s;
+    background: none;
+    padding: 12px 10px 12px 10px;
+}
+
+.crud_pop_up form textarea:focus {
+    border-bottom: 2px solid var(--color6);
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+.crud_pop_up form button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--color2);
+    border: none;
+    background-color: var(--color1);
+    padding: 10px 0px;
+    transition: 0.5s;
+}
+
+.crud_pop_up form button:hover {
+    background-color: var(--color6);
+    padding: 12px 0px;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+#crud-close-icon {
+    cursor: pointer;
+    position: relative;
+    top: -15px;
+    right: -15px;
+}
+
+.crud_pop_up form p {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--color3);
+    padding-top: 40px;
+}
+
+#open-form {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 0.5);
+}
+
+/* PÁGINA DE PERFIL - PASSAGEIRO E MOTORISTA */
+
+#topics #perfil-vi-atalho {
+  padding: 40px 0px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  margin: 50px 0px 30px 0px;
+}
+
+#topics #perfil-vi-atalho button {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  color: var(--color14);
+  border: none;
+  background-color: var(--color1);
+  padding: 12px 18px;
+  transition: 0.5s;
+}
+
+#topics #perfil-vi-atalho button:focus {
+  outline: 1px solid var(--color6);
+  transition: 0.5s;
+}
+
+#topics #perfil-vi-atalho button:hover {
+  background-color: var(--color2);
+  padding: 14px 20px;
+  font-size: 32px;
+  transition: 0.5s;
+}
+
+#topics #perfil-vi-atalho a {
+  text-decoration: none;
+  color: none;
+}
+
+#topics #perfil-vi-atalho-2 {
+  margin-bottom: 50px;
+}
+
+#topics #historico {
+  background: var(--color14);
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  margin: 30px 0px 0px 0px;
+}
+
+#topics #historico #title {
+  color: var(--color6);
+  font-family: 'Lato', sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0;
+}
+
+#topics #historico-item  {
+  background: var(--color14);
+  padding: 30px 20px;
+  text-align: center;
+  width: 60%;
+  margin: 30px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+#topics #historico-item p {
+  color: var(--color6);
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#topics #historico-item #data_hora span {
+  color: var(--color1);
+  font-weight: 600;
+}
+
+#topics #historico-item #cancelada {
+  color: var(--color11);
+}
+
+#topics #historico-item #finalizada {
+  color: var(--color17);
+}
+
+#empty-historic {
+  color: var(--color6);
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#historico a {
+  text-decoration: none;
+  color: var(--color1);
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+}
+
+/* PÁGINAS DE VIAGEM */
+
+#map {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+/* PÁGINA - SOLICITAR/BUSCAR - VIAGEM */
+
+#solicitar-vi {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 450px;
+  background-color: var(--color14);
+}
+
+#solicitar-cont {
+  width: 600px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#solicitar-cont h3 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  padding: 0;
+  margin-bottom: 30px;
+  color: var(--color6);
+}
+
+#solicitar-cont label {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 0;
+  color: var(--color15);
+}
+
+#solicitar-cont input {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--color6);
+  border: 0;
+  border-bottom: 1px solid var(--color12);
+  padding: 10px 0px 10px 7px;
+  background: transparent;
+}
+
+#solicitar-cont input:-webkit-autofill,
+#solicitar-cont input:-webkit-autofill:hover,
+#solicitar-cont input:-webkit-autofill:focus,
+#solicitar-cont input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: var(--color14); 
+}
+
+#solicitar-cont input::placeholder {
+  font-size: 20px;
+  color: var(--color6);
+  font-family: "Lato", sans-serif;
+  transition: 0.5s;
+}
+
+#solicitar-cont input:focus {
+  border: none;
+  outline: 1px solid var(--color6);
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+#solicitar-cont input:focus::placeholder {
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+#solicitar-cont select {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--color6);
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color12);
+  padding: 10px 0px 10px 7px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: 0.5s;
+}
+
+#solicitar-cont select::placeholder {
+  font-size: 20px;
+  color: var(--color6);
+  font-family: "Lato", sans-serif;
+  transition: 0.5s;
+}
+
+#solicitar-cont select:focus {
+  border: none;
+  outline: 1px solid var(--color6);
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+#solicitar-cont select:focus::placeholder {
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+#solicitar-cont form input::-webkit-outer-spin-button,
+#solicitar-cont form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#solicitar-cont form input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#solicitar-cont #btns {
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+#solicitar-cont button {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--color14);
+  border: none;
+  background-color: var(--color1);
+  padding: 10px 0px;
+  width: 100%;
+  transition: 0.5s;
+}
+
+#solicitar-cont button:focus {
+  transition: 0.5s;
+}
+
+#solicitar-cont button:hover {
+  background-color: var(--color2);
+  transition: 0.5s;
+}
+
+/* PÁGINA - ACOMPANHAR - VIAGEM */
+
+#acompanhar-vi {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 450px;
+  background-color: var(--color14);
+}
+
+#acompanhar-vi-cont, #acompanhar-vi #update-vi, #acompanhar-vi #cancelar-vi {
+  width: 800px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#acompanhar-vi h3 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  padding: 0;
+  margin-bottom: 30px;
+  color: var(--color6);
+}
+
+#acompanhar-vi label {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 0;
+  color: var(--color15);
+}
+
+#acompanhar-vi input {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--color6);
+  border: 0;
+  border-bottom: 1px solid var(--color12);
+  padding: 10px 0px 10px 7px;
+  background: transparent;
+}
+
+#acompanhar-vi p {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--color6);
+  border: 0;
+}
+
+#acompanhar-vi #btns {
+  margin: 0 auto;
+  width: 430px;
+  margin-top: 30px;
+}
+
+#acompanhar-vi-cont button, #acompanhar-vi #update-vi button,
+#acompanhar-vi #cancelar-vi button {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--color14);
+  border: none;
+  background-color: var(--color1);
+  padding: 10px 0px;
+  width: 200px;
+  transition: 0.5s;
+}
+
+#acompanhar-vi-cont button:focus, #acompanhar-vi #update-vi button:focus,
+#acompanhar-vi #cancelar-vi button:focus {
+  transition: 0.5s;
+}
+
+#acompanhar-vi-cont button:hover, #acompanhar-vi #update-vi button:hover,
+#acompanhar-vi #cancelar-vi button:hover {
+  background-color: var(--color2);
+  transition: 0.5s;
+}
+
+#acompanhar-vi-cont #cancelar-vi-btn,
+#acompanhar-vi #update-vi #cancelar-vi-btn,
+#acompanhar-vi #cancelar-vi #cancelar-vi-btn {
+  color: var(--color1);
+  border: none;
+  background-color: var(--color14);
+}
+
+/* STATUS */
+
+#acompanhar-vi-status {
+  background-color: var(--color1);
+}
+
+#acompanhar-vi-status p {
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color14);
+}
+
+/* EDITAR */
+
+#acompanhar-vi #update-vi #btns {
+  width: 410px;
+}
+
+#acompanhar-vi #update-vi, #acompanhar-vi #cancelar-vi {
+  display: none;
+}
+  
+#acompanhar-vi input:-webkit-autofill,
+#acompanhar-vi input:-webkit-autofill:hover,
+#acompanhar-vi input:-webkit-autofill:focus,
+#acompanhar-vi input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: var(--color14); 
+}
+
+#acompanhar-vi input::placeholder {
+  font-size: 20px;
+  color: var(--color6);
+  font-family: "Lato", sans-serif;
+  transition: 0.5s;
+}
+
+#acompanhar-vi input:focus {
+  border: none;
+  outline: 1px solid var(--color6);
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+#acompanhar-vi input:focus::placeholder {
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+#acompanhar-vi select {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--color6);
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color12);
+  padding: 10px 0px 10px 7px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: 0.5s;
+}
+
+#acompanhar-vi select::placeholder {
+  font-size: 20px;
+  color: var(--color6);
+  font-family: "Lato", sans-serif;
+  transition: 0.5s;
+}
+
+#acompanhar-vi select:focus {
+  border: none;
+  outline: 1px solid var(--color6);
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+#acompanhar-vi select:focus::placeholder {
+  font-size: 22px;
+  transition: 0.5s;
+}
+
+#acompanhar-vi form input::-webkit-outer-spin-button,
+#acompanhar-vi form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#acompanhar-vi form input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* CANCELAR */
+
+#cancelar-vi h3 {
+  margin-bottom: 80px;
+}
+
+#cancelar-vi p {
+  margin-bottom: 80px;
+}
+
+#acompanhar-vi #cancelar-vi #btns {
+  width: 410px;
+}
+
+/* MARCADORES */
+
+.marker {
+  background-image: url('/static/assets/img/mapbox-icon.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* EXTRAS */
+
+#alert-message {
+  z-index: 1;
+}

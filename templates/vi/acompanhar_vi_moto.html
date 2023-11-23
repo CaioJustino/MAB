@@ -1,0 +1,51 @@
+{% extends 'layouts/viagem.html' %}
+
+{% block title %}
+<title>ACOMPANHAR VIAGEM - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<div id="acompanhar-vi" style="height: 480px;">
+  <div id="acompanhar-vi-cont" class="row justify-content">
+    <h3 class="d-block col-12">VIAGEM</h3>
+    <div class="d-inline-block col-6">
+      <label class="container-fluid">Passageiro:</label>
+      <input class="container-fluid" value="{{user_pass.nome}}" disabled>
+    </div>
+    <div class="d-inline-block col-6">
+      <label class="container-fluid">Telefone:</label>
+      <input class="container-fluid" value="{{user_pass.tel}}" disabled>
+    </div>
+    <div class="d-inline-block col-6">
+      <label class="container-fluid mt-4">Embarque:</label>
+      <input class="container-fluid" value="{{viagem.embarque}}" disabled>
+    </div>
+    <div class="d-inline-block col-6">
+      <label class="container-fluid mt-4">Desembarque:</label>
+      <input class="container-fluid" value="{{viagem.desembarque}}" disabled>
+    </div>
+    <div class="d-inline-block col-6">
+      <label class="container-fluid mt-4">Pagamento:</label>
+      <input class="container-fluid" value="{% if pag.tipo == 'pix' %}PIX{% endif %}{% if pag.tipo == 'f' %}Físico{% endif %}" disabled>
+    </div>
+    <div class="d-inline-block col-6">
+      <label class="container-fluid mt-4">Valor:</label>
+      <input class="container-fluid" value="R$ {{pag.valor}}" disabled>
+    </div>
+    <div id="btns" class="d-grid d-md-block">
+      <form action="{{url_for('vi.finalizar_vi', id=viagem.id)}}" method="post">
+        <button type="submit">FINALIZAR</button>
+        <button onclick="showCancelarVi()" id="cancelar-vi-btn">CANCELAR</button>
+      </form>
+    </div>
+  </div>
+  
+  <form id="cancelar-vi" class="mt-3" method="post" action="{{url_for('vi.cancelar_vi')}}">
+    <h3 class="d-block col-12">CANCELAR VIAGEM</h3>
+    <div id="btns" class="d-grid d-md-block">
+      <button type="submit">CANCELAR</button>
+      <button type="button" onclick="showCancelarViReverse()" id="cancelar-vi-btn">VOLTAR</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

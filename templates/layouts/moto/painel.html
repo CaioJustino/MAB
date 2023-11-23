@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block title %}
+  {% endblock %}
+  
+  <!-- LINKS -->
+  <link rel="icon" href="/static/assets/img/logo-icon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/assets/css/style.css">
+  
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="nav-painel-main" class="container-fluid p-0 m-0">
+    {% with mesg = get_flashed_messages(with_categories=True) %}
+        {% for category, message in mesg %}
+          {% if mesg %}
+            <div id="alert-message" class="alert alert-{{category}} mb-0 position-relative" role="alert">
+              {{message}}
+            </div>
+          {% endif %}
+        {% endfor %}
+    {% endwith %}
+    {% block conteudo %}
+    {% endblock %}
+    <div id="nav-painel-menu" class="p-0">
+      <div id="nav-painel-menu-cont" class="mx-auto">
+        <a id="logo" class="navbar-brand" href="{{url_for('moto.perfil')}}"><img class="rounded d-block mx-auto" src="/static/assets/img/logo-mab.svg" alt="Página Inicial"></a>
+      <div id="nav-item">
+          <a href="{{url_for('moto.perfil')}}">
+            <div>
+              <svg class="d-inline-block" width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 39H18.5V26.5H29.5V39H37V19.5L24 9.75L11 19.5V39ZM8 42V18L24 6L40 18V42H26.5V29.5H21.5V42H8Z" fill="#ffffff"/></svg>
+              <p class="ms-4 d-inline-block">INÍCIO</p>
+            </div>
+          </a>
+        </div>
+        <div id="nav-item">
+          <a href="{{url_for('moto.update')}}">
+            <div>
+              <svg class="d-inline-block" width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 39H18.5V26.5H29.5V39H37V19.5L24 9.75L11 19.5V39ZM8 42V18L24 6L40 18V42H26.5V29.5H21.5V42H8Z" fill="#ffffff"/></svg>
+              <p class="ms-4 d-inline-block">EDITAR CONTA</p>
+            </div>
+          </a>
+        </div>
+        <div id="nav-item">
+          <a href="{{url_for('moto.update_senha')}}">
+            <div>
+              <svg class="d-inline-block" width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 39H18.5V26.5H29.5V39H37V19.5L24 9.75L11 19.5V39ZM8 42V18L24 6L40 18V42H26.5V29.5H21.5V42H8Z" fill="#ffffff"/></svg>
+              <p class="ms-4 d-inline-block">ALTERAR SENHA</p>
+            </div>
+          </a>
+        </div>
+        <div id="nav-item">
+          <a href="{{url_for('moto.delete')}}">
+            <div>
+              <svg class="d-inline-block" width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 39H18.5V26.5H29.5V39H37V19.5L24 9.75L11 19.5V39ZM8 42V18L24 6L40 18V42H26.5V29.5H21.5V42H8Z" fill="#ffffff"/></svg>
+              <p class="ms-4 d-inline-block">DESATIVAR CONTA</p>
+            </div>
+          </a>
+        </div>
+        <div id="nav-item">
+          <a href="{{url_for('moto.update_ve')}}">
+            <div>
+              <svg class="d-inline-block" width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 39H18.5V26.5H29.5V39H37V19.5L24 9.75L11 19.5V39ZM8 42V18L24 6L40 18V42H26.5V29.5H21.5V42H8Z" fill="#ffffff"/></svg>
+              <p class="ms-4 d-inline-block">EDITAR VEÍCULO</p>
+            </div>
+          </a>
+        </div>
+        <div id="nav-item" class="logout-item">
+          <a href="{{url_for('user.logoff')}}">
+            <div>
+              <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32.25 31.65C31.95 31.35 31.8 30.9875 31.8 30.5625C31.8 30.1375 31.95 29.7833 32.25 29.5L36.25 25.5H20.25C19.825 25.5 19.4688 25.3554 19.1813 25.0663C18.8938 24.7771 18.75 24.4187 18.75 23.9913C18.75 23.5638 18.8938 23.2083 19.1813 22.925C19.4688 22.6417 19.825 22.5 20.25 22.5H36.15L32.1 18.45C31.8333 18.1833 31.7 17.8426 31.7 17.4277C31.7 17.0127 31.8536 16.6544 32.1607 16.3527C32.4423 16.0509 32.7942 15.9 33.2165 15.9C33.6388 15.9 34 16.05 34.3 16.35L40.95 23C41.1167 23.1667 41.2333 23.3356 41.3 23.5067C41.3667 23.6778 41.4 23.8611 41.4 24.0567C41.4 24.2522 41.3667 24.4333 41.3 24.6C41.2333 24.7667 41.1167 24.9333 40.95 25.1L34.35 31.7C34.0833 31.9667 33.7417 32.1 33.325 32.1C32.9083 32.1 32.55 31.95 32.25 31.65ZM9 42C8.2 42 7.5 41.7 6.9 41.1C6.3 40.5 6 39.8 6 39V9C6 8.2 6.3 7.5 6.9 6.9C7.5 6.3 8.2 6 9 6H22.05C22.475 6 22.8313 6.14458 23.1188 6.43375C23.4063 6.72295 23.55 7.08128 23.55 7.50875C23.55 7.93625 23.4063 8.29167 23.1188 8.575C22.8313 8.85833 22.475 9 22.05 9H9V39H22.05C22.475 39 22.8313 39.1446 23.1188 39.4337C23.4063 39.7229 23.55 40.0813 23.55 40.5087C23.55 40.9362 23.4063 41.2917 23.1188 41.575C22.8313 41.8583 22.475 42 22.05 42H9Z" fill="#ffffff"/></svg>
+              <p class="ms-4 d-inline-block">SAIR</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/static/assets/js/app.js"></script>
+</body>
+</html>

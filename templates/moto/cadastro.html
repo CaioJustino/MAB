@@ -1,0 +1,74 @@
+{% extends 'layouts/form.html' %}
+
+{% block title %}
+<title>CADASTRO - MOTORISTA - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<body class="body-form">
+  <div class="crud" id="moto">
+    <form action="{{url_for('moto.cadastro')}}" method="post" class="mx-auto">
+      {% with mesg = get_flashed_messages(with_categories=True) %}
+        {% for category, message in mesg %}
+          {% if mesg %}
+            <div class="alert alert-{{category}} mb-0" role="alert">
+              {{message}}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endwith %}
+      <br>
+      <div id="part-1">
+        <h3 class="text-center">MOTORISTA</h3>
+        <label class="container-fluid">Nome:</label>
+        <input class="container-fluid" type="text" name="nome" placeholder="Digite o seu Nome" required><br>
+        <label class="container-fluid mt-4">E-mail:</label>
+        <input class="container-fluid" type="email" name="email" placeholder="Digite o seu E-mail" required><br>
+        <label class="container-fluid mt-4">Data de Nascimento:</label>
+        <input class="container-fluid" type="date" name="data_nasc" placeholder="Digite a sua Data de Nascimento" required><br>
+        <label class="container-fluid mt-4">Telefone:</label>
+        <input class="container-fluid" type="number" name="tel" placeholder="Digite o seu Telefone" required><br>
+        <label class="container-fluid mt-4">CNH:</label>
+        <input class="container-fluid" type="number" name="cnh" placeholder="Informe o código da sua CNH" required><br>
+        <label class="container-fluid mt-4">Senha:</label>
+        <input class="container-fluid" type="password" name="senha" placeholder="Digite uma Senha" required><br>
+        <label class="container-fluid mt-4">Confirmar Senha:</label>
+        <input class="container-fluid" type="password" name="csenha" placeholder="Confirme a Senha" required><br>
+        <div class="d-grid gap-2">
+            <button class="mt-5" onclick="ctn_cd_moto()">
+                CONTINUAR
+            </button>
+        </div>
+      </div>
+      <div id="part-2">
+        <h3 class="text-center">VEÍCULO</h3>
+        <label class="container-fluid">Placa:</label>
+        <input class="container-fluid" type="text" name="placa" placeholder="Digite a Placa do Veículo" required><br>
+        <label class="container-fluid mt-4">Renavam:</label>
+        <input class="container-fluid" type="number" name="renavam" placeholder="Digite o seu Renavam" required><br>
+        <label class="container-fluid mt-4">Marca:</label>
+        <input class="container-fluid" type="text" name="marca" placeholder="Digite a marca do Veículo" required><br>
+        <label class="container-fluid mt-4">Modelo:</label>
+        <input class="container-fluid" type="text" name="modelo" placeholder="Digite o modelo do Veículo" required><br>
+        <label class="container-fluid mt-4">Ano:</label>
+        <input class="container-fluid" type="number" name="ano" placeholder="Digite o ano do Veículo" required><br>
+        <label class="container-fluid mt-4">Cor:</label>
+        <input class="container-fluid" type="text" name="cor" placeholder="Digite a cor do Veículo" required><br>
+        <div class="row mt-5">
+          <div class="col-6">
+            <button class="float-start" onclick="ctn_cd_moto_reverse()">
+                VOLTAR
+            </button>  
+          </div>
+          <div class="col-6">
+            <button class="float-end" type="submit">
+                CADASTRAR
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script src="/static/assets/js/app.js"></script>
+</body>
+{% endblock %}
