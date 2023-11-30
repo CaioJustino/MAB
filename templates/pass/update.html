@@ -24,17 +24,20 @@
           <label class="container-fluid mt-4">Grau de Deficiência Visual:</label>
           <select class="container-fluid" name="deficiencia" required>
             {% if passg.deficiencia == "v1" %}
-              <option value="{{passg.deficiencia}}">Leve</option>
-            {% endif %}
-            {% if passg.deficiencia == "v2" %}
-              <option value="{{passg.deficiencia}}">Moderado</option>
-            {% endif %}
-            {% if passg.deficiencia == "v3" %}
-              <option value="{{passg.deficiencia}}">Alto</option>
-            {% endif %}
-            <option value="v1">Leve</option>
+            <option value="{{passg.deficiencia}}">Leve</option>
             <option value="v2">Moderado</option>
             <option value="v3">Alto</option>
+            {% endif %}
+            {% if passg.deficiencia == "v2" %}
+            <option value="{{passg.deficiencia}}">Moderado</option>
+            <option value="v1">Leve</option>
+            <option value="v3">Alto</option>
+            {% endif %}
+            {% if passg.deficiencia == "v3" %}
+            <option value="{{passg.deficiencia}}">Alto</option>
+            <option value="v1">Leve</option>
+            <option value="v2">Moderado</option>
+            {% endif %}
           </select><br>
           <div class="d-grid gap-2">
             <button type="submit" class="mt-5">

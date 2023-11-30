@@ -15,8 +15,7 @@
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"> 
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="nav-painel-main" class="container-fluid p-0 m-0">
@@ -33,8 +32,8 @@
     {% endblock %}
     <div id="nav-painel-menu" class="p-0">
       <div id="nav-painel-menu-cont" class="mx-auto">
-        <a id="logo" class="navbar-brand" href="{{url_for('pass.perfil')}}"><img class="rounded d-block mx-auto" src="/static/assets/img/logo-mab.svg" alt="Página Inicial"></a>
-      <div id="nav-item">
+        <a id="logo" class="navbar-brand" href="{{url_for('pass.perfil')}}"><img class="rounded d-block mx-auto" src="/static/assets/img/logo-mab-2.svg" alt="Página Inicial"></a>
+        <div id="nav-item">
           <a href="{{url_for('pass.perfil')}}">
             <div>
               <svg class="d-inline-block" width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 39H18.5V26.5H29.5V39H37V19.5L24 9.75L11 19.5V39ZM8 42V18L24 6L40 18V42H26.5V29.5H21.5V42H8Z" fill="#ffffff"/></svg>
@@ -45,7 +44,7 @@
         <div id="nav-item">
           <a href="{{url_for('pass.update')}}">
             <div>
-              <svg class="d-inline-block" width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 39H18.5V26.5H29.5V39H37V19.5L24 9.75L11 19.5V39ZM8 42V18L24 6L40 18V42H26.5V29.5H21.5V42H8Z" fill="#ffffff"/></svg>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.8 34C8.03 34 7.37083 33.7262 6.8225 33.1785C6.27417 32.6309 6 31.9725 6 31.2035V11.628C6 10.8589 6.27417 10.2006 6.8225 9.65293C7.37083 9.10529 8.03 8.83146 8.8 8.83146H21.295L18.495 11.628H8.8V31.2035H28.4V21.4856L31.2 18.6891V31.2035C31.2 31.9725 30.9258 32.6309 30.3775 33.1785C29.8292 33.7262 29.17 34 28.4 34H8.8ZM14.4 25.6105V19.6679L27.245 6.83895C27.525 6.5593 27.84 6.34956 28.19 6.20974C28.54 6.06991 28.89 6 29.24 6C29.6133 6 29.9692 6.06991 30.3075 6.20974C30.6458 6.34956 30.955 6.5593 31.235 6.83895L33.195 8.83146C33.4517 9.11111 33.65 9.41989 33.79 9.7578C33.93 10.0957 34 10.4395 34 10.789C34 11.1386 33.9358 11.4823 33.8075 11.8202C33.6792 12.1581 33.475 12.4669 33.195 12.7466L20.35 25.6105H14.4ZM17.2 22.814H19.16L27.28 14.7041L26.3 13.7253L25.285 12.7466L17.2 20.8215V22.814Z" fill="#FAFCFE"/></svg>
               <p class="ms-4 d-inline-block">EDITAR CONTA</p>
             </div>
           </a>
@@ -53,7 +52,7 @@
         <div id="nav-item">
           <a href="{{url_for('pass.update_senha')}}">
             <div>
-              <svg class="d-inline-block" width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 39H18.5V26.5H29.5V39H37V19.5L24 9.75L11 19.5V39ZM8 42V18L24 6L40 18V42H26.5V29.5H21.5V42H8Z" fill="#ffffff"/></svg>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.45455 29V26.1667H34.5455V29H5.45455ZM7.12727 20.4292L5.23636 19.3667L6.47273 17.2417H4V15.1167H6.47273L5.23636 13.0625L7.12727 12L8.36364 14.0542L9.6 12L11.4909 13.0625L10.2545 15.1167H12.7273V17.2417H10.2545L11.4909 19.3667L9.6 20.4292L8.36364 18.3042L7.12727 20.4292ZM18.7636 20.4292L16.8727 19.3667L18.1091 17.2417H15.6364V15.1167H18.1091L16.8727 13.0625L18.7636 12L20 14.0542L21.2364 12L23.1273 13.0625L21.8909 15.1167H24.3636V17.2417H21.8909L23.1273 19.3667L21.2364 20.4292L20 18.3042L18.7636 20.4292ZM30.4 20.4292L28.5091 19.3667L29.7455 17.2417H27.2727V15.1167H29.7455L28.5091 13.0625L30.4 12L31.6364 14.0542L32.8727 12L34.7636 13.0625L33.5273 15.1167H36V17.2417H33.5273L34.7636 19.3667L32.8727 20.4292L31.6364 18.3042L30.4 20.4292Z" fill="#FAFCFE"/></svg>
               <p class="ms-4 d-inline-block">ALTERAR SENHA</p>
             </div>
           </a>
@@ -61,8 +60,16 @@
         <div id="nav-item">
           <a href="{{url_for('pass.delete')}}">
             <div>
-              <svg class="d-inline-block" width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 39H18.5V26.5H29.5V39H37V19.5L24 9.75L11 19.5V39ZM8 42V18L24 6L40 18V42H26.5V29.5H21.5V42H8Z" fill="#ffffff"/></svg>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.775 27.5L20 23.1667L24.225 27.5L26.5 25.1667L22.275 20.8333L26.5 16.5L24.225 14.1667L20 18.5L15.775 14.1667L13.5 16.5L17.725 20.8333L13.5 25.1667L15.775 27.5ZM11.875 35C10.9812 35 10.2161 34.6736 9.57969 34.0208C8.94323 33.3681 8.625 32.5833 8.625 31.6667V10H7V6.66667H15.125V5H24.875V6.66667H33V10H31.375V31.6667C31.375 32.5833 31.0568 33.3681 30.4203 34.0208C29.7839 34.6736 29.0188 35 28.125 35H11.875ZM28.125 10H11.875V31.6667H28.125V10Z" fill="#FAFCFE"/></svg>
               <p class="ms-4 d-inline-block">DESATIVAR CONTA</p>
+            </div>
+          </a>
+        </div>
+        <div id="nav-item">
+          <a href="{{url_for('vi.solicitar_vi')}}">
+            <div>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.5035 19.6C21.2564 19.6 21.8997 19.3255 22.4336 18.7764C22.9674 18.2274 23.2344 17.5674 23.2344 16.7964C23.2344 16.0255 22.9663 15.3667 22.4301 14.82C21.894 14.2733 21.2494 14 20.4965 14C19.7436 14 19.1003 14.2745 18.5664 14.8236C18.0326 15.3726 17.7656 16.0326 17.7656 16.8036C17.7656 17.5745 18.0337 18.2333 18.5699 18.78C19.106 19.3267 19.7506 19.6 20.5035 19.6ZM20.5 32.84C23.9635 29.6133 26.5221 26.6867 28.1758 24.06C29.8294 21.4333 30.6562 19.12 30.6562 17.12C30.6562 13.9789 29.6759 11.407 27.7152 9.4042C25.7545 7.4014 23.3494 6.4 20.5 6.4C17.6506 6.4 15.2455 7.4014 13.2848 9.4042C11.3241 11.407 10.3438 13.9789 10.3438 17.12C10.3438 19.12 11.1901 21.4333 12.8828 24.06C14.5755 26.6867 17.1146 29.6133 20.5 32.84ZM20.5 36C16.3073 32.3467 13.1758 28.9533 11.1055 25.82C9.03516 22.6867 8 19.7867 8 17.12C8 13.12 9.25651 9.93333 11.7695 7.56C14.2826 5.18667 17.1927 4 20.5 4C23.8073 4 26.7174 5.18667 29.2305 7.56C31.7435 9.93333 33 13.12 33 17.12C33 19.7867 31.9648 22.6867 29.8945 25.82C27.8242 28.9533 24.6927 32.3467 20.5 36Z" fill="#FAFCFE"/></svg>
+              <p class="ms-4 d-inline-block">VIAGEM</p>
             </div>
           </a>
         </div>

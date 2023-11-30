@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: a20d9677cac2
+Revision ID: c9124b762088
 Revises: 
-Create Date: 2023-11-23 08:46:04.249367
+Create Date: 2023-11-27 17:16:37.805231
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'a20d9677cac2'
+revision = 'c9124b762088'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -21,7 +21,7 @@ def upgrade():
     op.create_table('user',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nome', sa.String(length=80), nullable=False),
-    sa.Column('data_nasc', sa.String(length=60), nullable=False),
+    sa.Column('data_nasc', sa.Date(), nullable=False),
     sa.Column('email', sa.String(length=80), nullable=False),
     sa.Column('tel', sa.Integer(), nullable=False),
     sa.Column('senha', sa.String(length=80), nullable=False),
@@ -41,7 +41,7 @@ def upgrade():
     )
     op.create_table('passageiro',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('deficiencia', sa.Integer(), nullable=False),
+    sa.Column('deficiencia', sa.String(length=45), nullable=False),
     sa.ForeignKeyConstraint(['id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('id')
@@ -75,15 +75,13 @@ def upgrade():
     sa.Column('id_moto', sa.Integer(), nullable=True),
     sa.Column('id_pag', sa.Integer(), nullable=True),
     sa.Column('id_ve', sa.Integer(), nullable=True),
-    sa.Column('embarque', sa.String(length=60), nullable=False),
-    sa.Column('desembarque', sa.String(length=60), nullable=False),
+    sa.Column('embarque', sa.String(length=100), nullable=False),
+    sa.Column('desembarque', sa.String(length=100), nullable=False),
     sa.Column('data_hora', sa.DateTime(), nullable=False),
     sa.Column('aceitacao', sa.Boolean(), nullable=True),
     sa.Column('status', sa.Boolean(), nullable=True),
-    sa.ForeignKeyConstraint(['id_moto'], ['motorista.id'], ),
     sa.ForeignKeyConstraint(['id_pag'], ['pagamento.id'], ),
     sa.ForeignKeyConstraint(['id_pass'], ['passageiro.id'], ),
-    sa.ForeignKeyConstraint(['id_ve'], ['veiculo.id'], ),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('id')
     )

@@ -29,10 +29,10 @@
                 <p><b>De:</b> {{vi.embarque}}</p>
                 <p><b>Para:</b> {{vi.desembarque}}</p>
                 {% if vi.status == 0 and vi.aceitacao == 0 %}
-                  <p id="cancelada" class="m-0">Cancelada</p>
+                <p id="cancelada" class="m-0">Cancelada</p>
                 {% endif %}
                 {% if vi.status == 0 and vi.aceitacao == 1 %}
-                  <p id="finalizada" class="m-0">Finalizada</p>
+                <p id="finalizada" class="m-0">Finalizada</p>
                 {% endif %}
               </div>
             {% endfor %}

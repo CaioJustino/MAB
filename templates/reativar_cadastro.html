@@ -1,0 +1,32 @@
+{% extends 'layouts/form.html' %}
+
+{% block title %}
+<title>REATIVAR CONTA - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<body class="body-form" id="body-login">
+  <div class="crud" id="login">
+    <form action="{{url_for('user.reativar_cadastro', id = id)}}" method="post" class="mx-auto">
+      {% with mesg = get_flashed_messages(with_categories=True) %}
+        {% for category, message in mesg %}
+          {% if mesg %}
+            <div class="alert alert-{{category}} mb-4" role="alert">
+              {{message}}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endwith %}
+      <br>
+      <h3 class="text-center">CADASTRO</h3>
+      <p class="container-fluid text-center">Deseja mesmo reativar a sua conta?</p>
+      <div class="d-grid gap-2">
+          <button type="submit" class="mt-5">
+              REATIVAR
+          </button>
+      </div>
+    </form>
+  </div>
+  <script src="/static/assets/js/app.js"></script>
+</body>
+{% endblock %}

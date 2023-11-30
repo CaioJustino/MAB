@@ -1,0 +1,149 @@
+{% extends 'layouts/adm/painel.html' %}
+
+{% block title %}
+<title>PASSAGEIROS - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<div id="nav-painel" class="col-12 me-0 px-0">
+  <div id="nav-painel-cont" class="mx-auto">
+    <div class="d-block">
+      <h1 id="page-title" class="text-center">PASSAGEIROS</h1>
+    </div>
+    <div id="topics" class="container-fluid px-0 mx-0">
+      <div id="topics-cont" class="table-responsive">
+        <h2 id="subtitle" class="p-0 d-inline-block mb-5">Cadastrados</h2>
+        <form id="search" method="post" action="{{url_for('adm.recovery_passg')}}">
+          <p class="d-inline-block me-2"><b>Filtrar por:</b></p>
+          <select class="d-inline-block" name="filter">
+            {% if filter == "id" %}
+            <option value="id" selected>ID</option>
+            {% endif %}
+            {% if filter == "nome" %}
+            <option value="nome" selected>Nome</option>
+            {% endif %}
+            {% if filter == "email" %}
+            <option value="email" selected>E-mail</option>
+            {% endif %}
+            {% if filter == "tel" %}
+            <option value="tel" selected>Tel.</option>
+            {% endif %}
+            <option value="id">ID</option>
+            <option value="nome">Nome</option>
+            <option value="email">E-mail</option>
+            <option value="tel">Tel.</option>
+          </select>
+          <p class="d-inline-block ms-4 me-2"><b>Pesquisar por:</b></p>
+          <input name="search" class="d-inline-block" placeholder="Digite algo..." type="text" value="{{search}}">
+          <button type="submit" class="d-inline-block">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </button>
+        </form>
+        <table class="table mx-auto mb-5 table-borderless table-responsive">
+          <thead>
+            <tr>
+              <th class="px-4 py-3" scope="col">ID</th>
+              <th class="px-4 py-3" scope="col">Nome</th>
+              <th class="px-4 py-3" scope="col">E-mail</th>
+              <th class="px-4 py-3" scope="col">Data de Nasc.</th>
+              <th class="px-4 py-3" scope="col">Tel.</th>
+              <th class="px-4 py-3" scope="col">Grau de Def.</th> 
+              <th class="px-4 py-3" scope="col">Status</th>
+              <th class="px-0 py-3" style="width: 50px;" scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+              {% set passg = passgs[loop.index0] %}
+              <tr>
+                <th class="px-4 py-3">{{user.id}}</th>
+                <th class="px-4 py-3">{{user.nome}}</th>
+                <th class="px-4 py-3">{{user.email}}</th>
+                <th class="px-4 py-3">{{user.data_nasc.strftime("%d/%m/%Y")}}</th>
+                <th class="px-4 py-3">{{user.tel}}</th>
+                {% if passg.deficiencia == "v1" %}
+                <th class="px-4 py-3">Leve</th>
+                {% endif %}
+                {% if passg.deficiencia == "v2" %}
+                <th class="px-4 py-3">Moderado</th>
+                {% endif %}
+                {% if passg.deficiencia == "v3" %}
+                <th class="px-4 py-3">Alto</th>
+                {% endif %}
+                {% if user.status == 1 %}
+                <th class="px-4 py-3" style="color:#2bb76a">Ativo</th>
+                {% endif %}
+                {% if user.status == 0 %}
+                <th class="px-4 py-3" style="color:#cf3939">Inativo</th>
+                {% endif %}
+                <th class="px-0 py-3" style="width: 50px;">
+                  <div class="text-center">
+                    <svg id="att-icon" onclick="openCrud('#att-user-{{user.id}}')" class="teste" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.5242 0.038208C17.2389 0.0969191 16.9223 0.237826 16.6957 0.410045C16.5706 0.500069 16.2072 0.844507 15.8828 1.16938L15.2966 1.7604L16.7738 3.23601L18.2471 4.71553L18.8724 4.08927C19.2202 3.74484 19.5641 3.36517 19.6462 3.24775C20.2011 2.41014 20.0956 1.33377 19.3844 0.621405C18.888 0.124318 18.1924 -0.0948706 17.5242 0.038208Z" fill="#2279bb"/><path d="M11.0682 5.99543C8.39127 8.68048 7.73474 9.36153 7.70347 9.47113C7.68393 9.5455 7.53934 10.2579 7.38302 11.0563C7.19153 12.0192 7.10555 12.5398 7.12119 12.6141C7.15636 12.7511 7.2736 12.8685 7.41038 12.9038C7.55888 12.939 10.5406 12.3441 10.6931 12.2501C10.7517 12.211 12.2797 10.7001 14.0852 8.88793L17.3678 5.59619L15.9024 4.12842C15.0973 3.32212 14.4291 2.66064 14.4173 2.66064C14.4056 2.66064 12.9011 4.16364 11.0682 5.99543Z" fill="#2279bb"/><path d="M2.0408 3.38474C1.29047 3.52173 0.594854 4.05405 0.254862 4.75466C-0.0186944 5.31829 -0.00697051 4.92297 0.00475335 11.8196L0.0164772 18.0234L0.102452 18.2778C0.231415 18.6535 0.454168 19.0058 0.739449 19.2955C1.03255 19.589 1.32173 19.7691 1.70471 19.9021L1.97045 20H8.30916H14.6479L14.9527 19.9021C15.7382 19.6555 16.3556 18.998 16.594 18.1565C16.6605 17.9216 16.6644 17.6672 16.6644 14.262V10.6179L16.5471 10.4301C16.3752 10.1522 16.086 10.0034 15.7733 10.0308C15.4998 10.0543 15.2849 10.1835 15.1324 10.4183L15.023 10.5827L15.0035 14.1837C14.9839 17.4793 14.98 17.8003 14.9175 17.9099C14.8237 18.0821 14.601 18.266 14.429 18.3169C14.3235 18.3482 12.5141 18.3561 8.23881 18.3482L2.19712 18.3365L2.04471 18.2308C1.96264 18.1721 1.84931 18.0586 1.7946 17.9764L1.6969 17.8316L1.68517 11.7335C1.67736 5.78798 1.67736 5.63142 1.75161 5.4866C1.7946 5.40831 1.87666 5.29481 1.93919 5.2361C2.18539 4.99734 2.01344 5.00908 5.80416 5.00908C8.43421 5.00908 9.30959 4.99734 9.43074 4.96211C9.65349 4.89557 9.89579 4.64116 9.95831 4.41023C10.0638 4.03839 9.90751 3.64698 9.57924 3.45519L9.39557 3.3456L5.85887 3.33777C3.07641 3.33385 2.26355 3.34168 2.0408 3.38474Z" fill="#2279bb"/></svg>
+                  </div>
+                </th>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="open-form"></div>
+{% for user in users %}
+  {% set passg = passgs[loop.index0] %}
+  <div class="crud_pop_up" id="att-user-{{user.id}}">
+    <form action="{{url_for('adm.update_passg', id = user.id)}}" method="post" class="mx-auto">
+      <div id="crud-close-icon" onclick="closeCrud('#att-user-{{user.id}}')">
+        <svg class="float-end" width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1.3674" y1="0.66086" x2="14.933" y2="15.3569" stroke="#303030"/><line y1="-0.5" x2="20" y2="-0.5" transform="matrix(-0.67828 0.734803 0.734803 0.67828 14.5657 1)" stroke="#303030"/></svg>
+      </div>
+      <h3 class="mt-4 mb-4 text-center">EDITAR</h3>
+      <label class="container-fluid">Nome:</label>
+      <input class="container-fluid" type="text" name="nome" placeholder="Digite o Nome" value="{{user.nome}}" required><br>
+      <label class="container-fluid mt-3">E-mail:</label>
+      <input class="container-fluid" type="email" name="email" placeholder="Digite o E-mail" value="{{user.email}}" required><br>
+      <label class="container-fluid mt-3">Data de Nascimento:</label>
+      <input class="container-fluid" type="date" name="data_nasc" placeholder="Digite a Data de Nascimento" value="{{user.data_nasc}}" required><br>
+      <label class="container-fluid mt-3">Telefone:</label>
+      <input class="container-fluid" type="number" name="tel" placeholder="Digite o Telefone" value="{{user.tel}}" required><br>
+      <label class="container-fluid mt-3">Grau de Deficiência Visual:</label>
+      <select class="container-fluid" name="deficiencia" required>
+        {% if passg.deficiencia == "v1" %}
+        <option value="{{passg.deficiencia}}">Leve</option>
+        <option value="v2">Moderado</option>
+        <option value="v3">Alto</option>
+        {% endif %}
+        {% if passg.deficiencia == "v2" %}
+        <option value="{{passg.deficiencia}}">Moderado</option>
+        <option value="v1">Leve</option>
+        <option value="v3">Alto</option>
+        {% endif %}
+        {% if passg.deficiencia == "v3" %}
+        <option value="{{passg.deficiencia}}">Alto</option>
+        <option value="v1">Leve</option>
+        <option value="v2">Moderado</option>
+        {% endif %}
+      </select><br>
+      <label class="mt-3">Status:</label>
+      <select class="container-fluid" name="status" required>
+        {% if user.status == 1 %}
+        <option value="{{user.status}}">Ativo</option>
+        <option value="False">Inativo</option>
+        {% endif %}
+        {% if user.status == 0 %}
+        <option value="{{user.status}}">Inativo</option>
+        <option value="True">Ativo</option>
+        {% endif %}
+      </select>
+      <div class="d-grid gap-2">
+        <button type="submit" class="mt-3">
+            ATUALIZAR
+        </button>
+      </div>
+    </form>
+  </div>
+{% endfor %}
+{% endblock %}

@@ -11,20 +11,46 @@
       <h1 id="page-title" class="text-center">INÍCIO</h1>
     </div>
     <div id="topics" class="container-fluid px-0 mx-0">
-      <div id="topics-cont">
-        <h2 id="subtitle" class="p-0 d-inline-block mb-5"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 23.95C21.8 23.95 20 23.25 18.6 21.85C17.2 20.45 16.5 18.65 16.5 16.45C16.5 14.25 17.2 12.45 18.6 11.05C20 9.64995 21.8 8.94995 24 8.94995C26.2 8.94995 28 9.64995 29.4 11.05C30.8 12.45 31.5 14.25 31.5 16.45C31.5 18.65 30.8 20.45 29.4 21.85C28 23.25 26.2 23.95 24 23.95ZM8 40V35.3C8 34.0333 8.31667 32.95 8.95 32.05C9.58333 31.15 10.4 30.4666 11.4 30C13.6333 29 15.775 28.25 17.825 27.75C19.875 27.25 21.9333 27 24 27C26.0667 27 28.1167 27.2583 30.15 27.775C32.1833 28.2916 34.3154 29.0365 36.5461 30.0096C37.5894 30.4805 38.4259 31.1633 39.0556 32.058C39.6852 32.9526 40 34.0333 40 35.3V40H8ZM11 37H37V35.3C37 34.7666 36.8417 34.2583 36.525 33.775C36.2083 33.2916 35.8167 32.9333 35.35 32.7C33.2167 31.6666 31.2667 30.9583 29.5 30.575C27.7333 30.1916 25.9 30 24 30C22.1 30 20.25 30.1916 18.45 30.575C16.65 30.9583 14.7 31.6666 12.6 32.7C12.1333 32.9333 11.75 33.2916 11.45 33.775C11.15 34.2583 11 34.7666 11 35.3V37ZM24 20.95C25.3 20.95 26.375 20.525 27.225 19.675C28.075 18.825 28.5 17.75 28.5 16.45C28.5 15.15 28.075 14.075 27.225 13.225C26.375 12.375 25.3 11.95 24 11.95C22.7 11.95 21.625 12.375 20.775 13.225C19.925 14.075 19.5 15.15 19.5 16.45C19.5 17.75 19.925 18.825 20.775 19.675C21.625 20.525 22.7 20.95 24 20.95Z" fill="#4578df"/></svg>  Cadastrados</h2>
+      <div id="topics-cont" class="table-responsive">
+        <h2 id="subtitle" class="p-0 d-inline-block mb-5">Administradores</h2>
         <tr class="d-inline-block mb-5">
           <td class="px-0 pt-3 pb-5" colspan="8">
             <button class="float-end" id="add-user-btn" onclick="openCrud('#add-user')"><svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36.5 28V21.5H30V18.5H36.5V12H39.5V18.5H46V21.5H39.5V28H36.5ZM18 23.95C15.8 23.95 14 23.25 12.6 21.85C11.2 20.45 10.5 18.65 10.5 16.45C10.5 14.25 11.2 12.45 12.6 11.05C14 9.64995 15.8 8.94995 18 8.94995C20.2 8.94995 22 9.64995 23.4 11.05C24.8 12.45 25.5 14.25 25.5 16.45C25.5 18.65 24.8 20.45 23.4 21.85C22 23.25 20.2 23.95 18 23.95ZM2 40V35.3C2 34.1333 2.29167 33.075 2.875 32.125C3.45833 31.175 4.3 30.4666 5.4 30C7.9 28.9 10.1223 28.125 12.0669 27.675C14.0115 27.225 15.9865 27 17.9919 27C19.9973 27 21.9667 27.225 23.9 27.675C25.8333 28.125 28.05 28.9 30.55 30C31.65 30.5 32.5 31.2166 33.1 32.15C33.7 33.0833 34 34.1333 34 35.3V40H2ZM5 37H31V35.3C31 34.7666 30.85 34.2583 30.55 33.775C30.25 33.2916 29.85 32.9333 29.35 32.7C26.9833 31.6 24.9833 30.875 23.35 30.525C21.7167 30.175 19.9333 30 18 30C16.0667 30 14.275 30.175 12.625 30.525C10.975 30.875 8.96667 31.6 6.6 32.7C6.1 32.9333 5.70833 33.2916 5.425 33.775C5.14167 34.2583 5 34.7666 5 35.3V37ZM18 20.95C19.3 20.95 20.375 20.525 21.225 19.675C22.075 18.825 22.5 17.75 22.5 16.45C22.5 15.15 22.075 14.075 21.225 13.225C20.375 12.375 19.3 11.95 18 11.95C16.7 11.95 15.625 12.375 14.775 13.225C13.925 14.075 13.5 15.15 13.5 16.45C13.5 17.75 13.925 18.825 14.775 19.675C15.625 20.525 16.7 20.95 18 20.95Z" fill="#ffffff"/></svg> </button>
           </td>     
         </tr>
-        <form>
-          <input id="search" class="d-inline-block" placeholder="Busque por um Nome..." type="text" name="search" value="{{request('search')}}"><br><br>
+        <form id="search" method="post" action="{{url_for('adm.perfil')}}">
+          <p class="d-inline-block me-2"><b>Filtrar por:</b></p>
+          <select class="d-inline-block" name="filter">
+            {% if filter == "id" %}
+            <option value="id" selected>ID</option>
+            {% endif %}
+            {% if filter == "nome" %}
+            <option value="nome" selected>Nome</option>
+            {% endif %}
+            {% if filter == "email" %}
+            <option value="email" selected>E-mail</option>
+            {% endif %}
+            {% if filter == "tel" %}
+            <option value="tel" selected>Tel.</option>
+            {% endif %}
+            <option value="id">ID</option>
+            <option value="nome">Nome</option>
+            <option value="email">E-mail</option>
+            <option value="tel">Tel.</option>
+          </select>
+          <p class="d-inline-block ms-4 me-2"><b>Pesquisar por:</b></p>
+          <input name="search" class="d-inline-block" placeholder="Digite algo..." type="text" value="{{search}}">
+          <button type="submit" class="d-inline-block">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </button>
         </form>
-        <table class="table mx-auto mb-5 table-borderless table-responsive-md">
+        <table class="table mx-auto mb-5 table-borderless table-responsive">
           <thead>
             <tr>
-              <th class="px-4 py-3" scope="col">#</th>
+              <th class="px-4 py-3" scope="col">ID</th>
               <th class="px-4 py-3" scope="col">Nome</th>
               <th class="px-4 py-3" scope="col">E-mail</th>
               <th class="px-4 py-3" scope="col">Data de Nasc.</th>
@@ -39,18 +65,18 @@
               <th class="px-4 py-3">{{user.id}}</th>
               <th class="px-4 py-3">{{user.nome}}</th>
               <th class="px-4 py-3">{{user.email}}</th>
-              <th class="px-4 py-3">{{user.data_nasc}}</th>
+              <th class="px-4 py-3">{{user.data_nasc.strftime("%d/%m/%Y")}}</th>
               <th class="px-4 py-3">{{user.tel}}</th>
-              {% if (user.status == "1") %}
+              {% if user.status == 1 %}
               <th class="px-4 py-3" style="color:#2bb76a">Ativo</th>
               {% endif %}
-              {% if (user.status == "0") %}
+              {% if user.status == 0 %}
               <th class="px-4 py-3" style="color:#cf3939">Inativo</th>
               {% endif %}
               <th class="px-0 py-3" style="width: 50px;">
                 <div class="text-center">
-                  <svg id="att-icon" onclick="openCrud('#att-user-{{user.id}}')" class="teste" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.5242 0.038208C17.2389 0.0969191 16.9223 0.237826 16.6957 0.410045C16.5706 0.500069 16.2072 0.844507 15.8828 1.16938L15.2966 1.7604L16.7738 3.23601L18.2471 4.71553L18.8724 4.08927C19.2202 3.74484 19.5641 3.36517 19.6462 3.24775C20.2011 2.41014 20.0956 1.33377 19.3844 0.621405C18.888 0.124318 18.1924 -0.0948706 17.5242 0.038208Z" fill="#4578DF"/><path d="M11.0682 5.99543C8.39127 8.68048 7.73474 9.36153 7.70347 9.47113C7.68393 9.5455 7.53934 10.2579 7.38302 11.0563C7.19153 12.0192 7.10555 12.5398 7.12119 12.6141C7.15636 12.7511 7.2736 12.8685 7.41038 12.9038C7.55888 12.939 10.5406 12.3441 10.6931 12.2501C10.7517 12.211 12.2797 10.7001 14.0852 8.88793L17.3678 5.59619L15.9024 4.12842C15.0973 3.32212 14.4291 2.66064 14.4173 2.66064C14.4056 2.66064 12.9011 4.16364 11.0682 5.99543Z" fill="#4578DF"/><path d="M2.0408 3.38474C1.29047 3.52173 0.594854 4.05405 0.254862 4.75466C-0.0186944 5.31829 -0.00697051 4.92297 0.00475335 11.8196L0.0164772 18.0234L0.102452 18.2778C0.231415 18.6535 0.454168 19.0058 0.739449 19.2955C1.03255 19.589 1.32173 19.7691 1.70471 19.9021L1.97045 20H8.30916H14.6479L14.9527 19.9021C15.7382 19.6555 16.3556 18.998 16.594 18.1565C16.6605 17.9216 16.6644 17.6672 16.6644 14.262V10.6179L16.5471 10.4301C16.3752 10.1522 16.086 10.0034 15.7733 10.0308C15.4998 10.0543 15.2849 10.1835 15.1324 10.4183L15.023 10.5827L15.0035 14.1837C14.9839 17.4793 14.98 17.8003 14.9175 17.9099C14.8237 18.0821 14.601 18.266 14.429 18.3169C14.3235 18.3482 12.5141 18.3561 8.23881 18.3482L2.19712 18.3365L2.04471 18.2308C1.96264 18.1721 1.84931 18.0586 1.7946 17.9764L1.6969 17.8316L1.68517 11.7335C1.67736 5.78798 1.67736 5.63142 1.75161 5.4866C1.7946 5.40831 1.87666 5.29481 1.93919 5.2361C2.18539 4.99734 2.01344 5.00908 5.80416 5.00908C8.43421 5.00908 9.30959 4.99734 9.43074 4.96211C9.65349 4.89557 9.89579 4.64116 9.95831 4.41023C10.0638 4.03839 9.90751 3.64698 9.57924 3.45519L9.39557 3.3456L5.85887 3.33777C3.07641 3.33385 2.26355 3.34168 2.0408 3.38474Z" fill="#4578DF"/></svg>
-                    <svg id="ats-icon" onclick="openCrud('#alter-senha-{{user.id}}')" class="teste" width="22" height="23" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 44C10.175 44 9.46875 43.7063 8.88125 43.1188C8.29375 42.5313 8 41.825 8 41V19.3C8 18.475 8.29375 17.7688 8.88125 17.1813C9.46875 16.5938 10.175 16.3 11 16.3H14.5V11.5C14.5 8.87167 15.4268 6.63125 17.2803 4.77875C19.1338 2.92625 21.3755 2 24.0053 2C26.6351 2 28.875 2.92625 30.725 4.77875C32.575 6.63125 33.5 8.87167 33.5 11.5V16.3H37C37.825 16.3 38.5313 16.5938 39.1188 17.1813C39.7063 17.7688 40 18.475 40 19.3V41C40 41.825 39.7063 42.5313 39.1188 43.1188C38.5313 43.7063 37.825 44 37 44H11ZM11 41H37V19.3H11V41ZM24.0084 34C25.0695 34 25.975 33.6328 26.725 32.8985C27.475 32.1641 27.85 31.2813 27.85 30.25C27.85 29.25 27.4722 28.3417 26.7166 27.525C25.961 26.7083 25.0527 26.3 23.9916 26.3C22.9305 26.3 22.025 26.7083 21.275 27.525C20.525 28.3417 20.15 29.2583 20.15 30.275C20.15 31.2917 20.5278 32.1667 21.2834 32.9C22.039 33.6333 22.9473 34 24.0084 34ZM17.5 16.3H30.5V11.5C30.5 9.69443 29.8686 8.15972 28.6059 6.89585C27.3431 5.63195 25.8098 5 24.0059 5C22.202 5 20.6667 5.63195 19.4 6.89585C18.1333 8.15972 17.5 9.69443 17.5 11.5V16.3Z" fill="#4578DF"/></svg>
+                  <svg id="att-icon" onclick="openCrud('#att-user-{{user.id}}')" class="teste" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.5242 0.038208C17.2389 0.0969191 16.9223 0.237826 16.6957 0.410045C16.5706 0.500069 16.2072 0.844507 15.8828 1.16938L15.2966 1.7604L16.7738 3.23601L18.2471 4.71553L18.8724 4.08927C19.2202 3.74484 19.5641 3.36517 19.6462 3.24775C20.2011 2.41014 20.0956 1.33377 19.3844 0.621405C18.888 0.124318 18.1924 -0.0948706 17.5242 0.038208Z" fill="#2279bb"/><path d="M11.0682 5.99543C8.39127 8.68048 7.73474 9.36153 7.70347 9.47113C7.68393 9.5455 7.53934 10.2579 7.38302 11.0563C7.19153 12.0192 7.10555 12.5398 7.12119 12.6141C7.15636 12.7511 7.2736 12.8685 7.41038 12.9038C7.55888 12.939 10.5406 12.3441 10.6931 12.2501C10.7517 12.211 12.2797 10.7001 14.0852 8.88793L17.3678 5.59619L15.9024 4.12842C15.0973 3.32212 14.4291 2.66064 14.4173 2.66064C14.4056 2.66064 12.9011 4.16364 11.0682 5.99543Z" fill="#2279bb"/><path d="M2.0408 3.38474C1.29047 3.52173 0.594854 4.05405 0.254862 4.75466C-0.0186944 5.31829 -0.00697051 4.92297 0.00475335 11.8196L0.0164772 18.0234L0.102452 18.2778C0.231415 18.6535 0.454168 19.0058 0.739449 19.2955C1.03255 19.589 1.32173 19.7691 1.70471 19.9021L1.97045 20H8.30916H14.6479L14.9527 19.9021C15.7382 19.6555 16.3556 18.998 16.594 18.1565C16.6605 17.9216 16.6644 17.6672 16.6644 14.262V10.6179L16.5471 10.4301C16.3752 10.1522 16.086 10.0034 15.7733 10.0308C15.4998 10.0543 15.2849 10.1835 15.1324 10.4183L15.023 10.5827L15.0035 14.1837C14.9839 17.4793 14.98 17.8003 14.9175 17.9099C14.8237 18.0821 14.601 18.266 14.429 18.3169C14.3235 18.3482 12.5141 18.3561 8.23881 18.3482L2.19712 18.3365L2.04471 18.2308C1.96264 18.1721 1.84931 18.0586 1.7946 17.9764L1.6969 17.8316L1.68517 11.7335C1.67736 5.78798 1.67736 5.63142 1.75161 5.4866C1.7946 5.40831 1.87666 5.29481 1.93919 5.2361C2.18539 4.99734 2.01344 5.00908 5.80416 5.00908C8.43421 5.00908 9.30959 4.99734 9.43074 4.96211C9.65349 4.89557 9.89579 4.64116 9.95831 4.41023C10.0638 4.03839 9.90751 3.64698 9.57924 3.45519L9.39557 3.3456L5.85887 3.33777C3.07641 3.33385 2.26355 3.34168 2.0408 3.38474Z" fill="#2279bb"/></svg>
+                  <svg id="ats-icon" onclick="openCrud('#alter-senha-{{user.id}}')" class="teste" width="22" height="23" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 44C10.175 44 9.46875 43.7063 8.88125 43.1188C8.29375 42.5313 8 41.825 8 41V19.3C8 18.475 8.29375 17.7688 8.88125 17.1813C9.46875 16.5938 10.175 16.3 11 16.3H14.5V11.5C14.5 8.87167 15.4268 6.63125 17.2803 4.77875C19.1338 2.92625 21.3755 2 24.0053 2C26.6351 2 28.875 2.92625 30.725 4.77875C32.575 6.63125 33.5 8.87167 33.5 11.5V16.3H37C37.825 16.3 38.5313 16.5938 39.1188 17.1813C39.7063 17.7688 40 18.475 40 19.3V41C40 41.825 39.7063 42.5313 39.1188 43.1188C38.5313 43.7063 37.825 44 37 44H11ZM11 41H37V19.3H11V41ZM24.0084 34C25.0695 34 25.975 33.6328 26.725 32.8985C27.475 32.1641 27.85 31.2813 27.85 30.25C27.85 29.25 27.4722 28.3417 26.7166 27.525C25.961 26.7083 25.0527 26.3 23.9916 26.3C22.9305 26.3 22.025 26.7083 21.275 27.525C20.525 28.3417 20.15 29.2583 20.15 30.275C20.15 31.2917 20.5278 32.1667 21.2834 32.9C22.039 33.6333 22.9473 34 24.0084 34ZM17.5 16.3H30.5V11.5C30.5 9.69443 29.8686 8.15972 28.6059 6.89585C27.3431 5.63195 25.8098 5 24.0059 5C22.202 5 20.6667 5.63195 19.4 6.89585C18.1333 8.15972 17.5 9.69443 17.5 11.5V16.3Z" fill="#2279bb"/></svg>
                 </div>
               </th>
             </tr>
@@ -67,21 +93,21 @@
     <div id="crud-close-icon" onclick="closeCrud('#add-user')">
       <svg class="float-end" width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1.3674" y1="0.66086" x2="14.933" y2="15.3569" stroke="#303030"/><line y1="-0.5" x2="20" y2="-0.5" transform="matrix(-0.67828 0.734803 0.734803 0.67828 14.5657 1)" stroke="#303030"/></svg>
     </div>
-    <h3 class="mt-4 text-center">CADASTRO</h3>
+    <h3 class="mt-4 mb-4 text-center">CADASTRO</h3>
     <label class="container-fluid">Nome:</label>
     <input class="container-fluid" type="text" name="nome" placeholder="Digite o Nome" required><br>
-    <label class="container-fluid mt-4">E-mail:</label>
+    <label class="container-fluid mt-3">E-mail:</label>
     <input class="container-fluid" type="email" name="email" placeholder="Digite o E-mail" required><br>
-    <label class="container-fluid mt-4">Data de Nascimento:</label>
+    <label class="container-fluid mt-3">Data de Nascimento:</label>
     <input class="container-fluid" type="date" name="data_nasc" placeholder="Digite a Data de Nascimento" required><br>
-    <label class="container-fluid mt-4">Telefone:</label>
+    <label class="container-fluid mt-3">Telefone:</label>
     <input class="container-fluid" type="number" name="tel" placeholder="Digite o Telefone" required><br>
-    <label class="container-fluid mt-4">Senha:</label>
+    <label class="container-fluid mt-3">Senha:</label>
     <input class="container-fluid" type="password" name="senha" placeholder="Digite uma Senha" required><br>
-    <label class="container-fluid mt-4">Confirmar Senha:</label>
+    <label class="container-fluid mt-3">Confirmar Senha:</label>
     <input class="container-fluid" type="password" name="csenha" placeholder="Confirme sua Senha" required><br>
     <div class="d-grid gap-2">
-      <button type="submit" class="mt-5">
+      <button type="submit" class="mt-3">
         CADASTRAR
       </button>
     </div>
@@ -93,32 +119,28 @@
     <div id="crud-close-icon" onclick="closeCrud('#att-user-{{user.id}}')">
       <svg class="float-end" width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1.3674" y1="0.66086" x2="14.933" y2="15.3569" stroke="#303030"/><line y1="-0.5" x2="20" y2="-0.5" transform="matrix(-0.67828 0.734803 0.734803 0.67828 14.5657 1)" stroke="#303030"/></svg>
     </div>
-    <h3 class="mt-4 text-center">EDITAR</h3>
+    <h3 class="mt-4 mb-4 text-center">EDITAR</h3>
     <label class="container-fluid">Nome:</label>
     <input class="container-fluid" type="text" name="nome" placeholder="Digite o Nome" value="{{user.nome}}" required><br>
-    <label class="container-fluid mt-4">E-mail:</label>
+    <label class="container-fluid mt-3">E-mail:</label>
     <input class="container-fluid" type="email" name="email" placeholder="Digite o E-mail" value="{{user.email}}" required><br>
-    <label class="container-fluid mt-4">Data de Nascimento:</label>
+    <label class="container-fluid mt-3">Data de Nascimento:</label>
     <input class="container-fluid" type="date" name="data_nasc" placeholder="Digite a Data de Nascimento" value="{{user.data_nasc}}" required><br>
-    <label class="container-fluid mt-4">Telefone:</label>
+    <label class="container-fluid mt-3">Telefone:</label>
     <input class="container-fluid" type="number" name="tel" placeholder="Digite o Telefone" value="{{user.tel}}" required><br>
-    <label class="mt-4" for="admin">Status:</label>
-    <select class="form-select container-fluid" name="status" required>
-      {% if (user.status == "1") %}
+    <label class="mt-3">Status:</label>
+    <select class="container-fluid" name="status" required>
+      {% if user.status == 1 %}
       <option value="{{user.status}}">Ativo</option>
+      <option value="False">Inativo</option>
       {% endif %}
-      {% if (user.status == "0") %}
+      {% if user.status == 0 %}
       <option value="{{user.status}}">Inativo</option>
-      {% endif %}
-      {% if (user.status == "1") %}
-      <option value="0">Inativo</option>
-      {% endif %}
-      {% if (user.status == "0") %}
-      <option value="1">Ativo</option>
+      <option value="True">Ativo</option>
       {% endif %}
     </select>
     <div class="d-grid gap-2">
-      <button type="submit" class="mt-5">
+      <button type="submit" class="mt-3">
           ATUALIZAR
       </button>
     </div>
@@ -129,13 +151,13 @@
     <div id="crud-close-icon" onclick="closeCrud('#alter-senha-{{user.id}}')">
       <svg class="float-end" width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1.3674" y1="0.66086" x2="14.933" y2="15.3569" stroke="#303030"/><line y1="-0.5" x2="20" y2="-0.5" transform="matrix(-0.67828 0.734803 0.734803 0.67828 14.5657 1)" stroke="#303030"/></svg>
     </div>
-    <h3 class="mt-4 text-center">ALTERAR SENHA</h3>
-    <label class="container-fluid mt-4">Senha:</label>
+    <h3 class="mt-4 mb-4 text-center">ALTERAR SENHA</h3>
+    <label class="container-fluid mt-3">Senha:</label>
     <input class="container-fluid" type="password" name="senha" placeholder="Digite uma Senha" required><br>
-    <label class="container-fluid mt-4">Confirmar Senha:</label>
+    <label class="container-fluid mt-3">Confirmar Senha:</label>
     <input class="container-fluid" type="password" name="csenha" placeholder="Confirme sua Senha" required><br>
     <div class="d-grid gap-2">
-      <button type="submit" class="mt-5">
+      <button type="submit" class="mt-3">
         ATUALIZAR
       </button>
     </div>

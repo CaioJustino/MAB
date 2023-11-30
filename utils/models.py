@@ -7,7 +7,7 @@ class User(db.Model, UserMixin):
   __tablename__ = "user"
   id = db.Column(db.Integer, unique=True, primary_key=True)
   nome = db.Column(db.String(80), nullable=False)
-  data_nasc = db.Column(db.String(60), nullable=False)
+  data_nasc = db.Column(db.Date(), nullable=False)
   email = db.Column(db.String(80), unique=True, nullable=False) 
   tel = db.Column(db.Integer, nullable=False)
   senha = db.Column(db.String(80), nullable=False)
@@ -29,7 +29,7 @@ class User(db.Model, UserMixin):
 class Passageiro(db.Model):
   __tablename__ = "passageiro"
   id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, primary_key=True)
-  deficiencia = db.Column(db.Integer, nullable=False)
+  deficiencia = db.Column(db.String(45), nullable=False)
   
   user = db.relationship('User', foreign_keys=id)
 
@@ -100,19 +100,17 @@ class Viagem(db.Model):
   __tablename__ = "viagem"
   id = db.Column(db.Integer, unique=True, primary_key=True)
   id_pass = db.Column(db.Integer, db.ForeignKey('passageiro.id'))
-  id_moto = db.Column(db.Integer, db.ForeignKey('motorista.id'))
+  id_moto = db.Column(db.Integer) 
   id_pag = db.Column(db.Integer, db.ForeignKey('pagamento.id'))
-  id_ve = db.Column(db.Integer, db.ForeignKey('veiculo.id'))
-  embarque = db.Column(db.String(60), nullable=False)
-  desembarque = db.Column(db.String(60), nullable=False)
+  id_ve = db.Column(db.Integer)
+  embarque = db.Column(db.String(100), nullable=False)
+  desembarque = db.Column(db.String(100), nullable=False)
   data_hora = db.Column(db.DateTime, nullable=False)
   aceitacao = db.Column(db.Boolean, default=True)
   status = db.Column(db.Boolean, default=True)
 
   passageiro = db.relationship('Passageiro', foreign_keys=id_pass)
-  motorista = db.relationship('Motorista', foreign_keys=id_moto)
   pagamento = db.relationship('Pagamento', foreign_keys=id_pag)
-  veiculo = db.relationship('Veiculo', foreign_keys=id_ve)
 
   def __init__(self, id_pass, id_moto, id_pag, id_ve, embarque, desembarque, data_hora, aceitacao, status):
     self.id_pass = id_pass

@@ -36,7 +36,7 @@ function showCancelarViReverse() {
     
 // Reconhecimento de Voz - Texto em Áudio
 
-const elementosDeTexto = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, a, label, button, input")
+const elementosDeTexto = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, a, label, button, input, th")
 
 // On Focus
 
@@ -192,13 +192,6 @@ function openCrud(n) {
 
 mapboxgl.accessToken = "pk.eyJ1IjoiY2p1c3QiLCJhIjoiY2xwNWU0bGtnMWViaTJscXZlZG5yZXpqaiJ9.ClDZFNMZlZD0tKHhAYbr-w"
 
-var map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/mapbox/streets-v11',
-  center: [-96, 37.8],
-  zoom: 3
-})
-
 // Autocomplete
 
 const script_ac = document.getElementById('search-js');
@@ -218,6 +211,14 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
 function successLocation(position) {
   var lng = position.coords.longitude
   var lat = position.coords.latitude
+
+
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [lng, lat],
+    zoom: 9
+  })
 
   const geojson = {
     type: 'FeatureCollection',

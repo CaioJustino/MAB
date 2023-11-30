@@ -9,12 +9,33 @@ import hashlib
 bp_adm = Blueprint("adm", __name__, template_folder="templates")
 
 # PERFIL
-@bp_adm.route('/perfil', methods=['GET'])
+@bp_adm.route('/perfil', methods=['GET','POST'])
 @login_required
 def perfil():
   if current_user.adm == 1:
-    users = User.query.filter_by(adm = 1).order_by(User.id.desc()).all()
-    return render_template('adm/perfil.html', users=users)
+    if request.form.get('search') != None:
+      filter = request.form.get('filter')
+      search = request.form.get('search')
+
+      if filter == "id":
+        users = User.query.filter_by(adm = 1).filter(User.id.like(f'%{search}%')).order_by(User.nome).all()
+        return render_template('adm/perfil.html', users = users, search = search, filter = filter)
+
+      elif filter == "nome":
+        users = User.query.filter_by(adm = 1).filter(User.nome.like(f'%{search}%')).order_by(User.nome).all()
+        return render_template('adm/perfil.html', users = users, search = search, filter = filter)
+      
+      elif filter == "email":
+        users = User.query.filter_by(adm = 1).filter(User.email.like(f'%{search}%')).order_by(User.nome).all()
+        return render_template('adm/perfil.html', users = users, search = search, filter = filter)
+      
+      elif filter == "tel":
+        users = User.query.filter_by(adm = 1).filter(User.tel.like(f'%{search}%')).order_by(User.nome).all()
+        return render_template('adm/perfil.html', users = users, search = search, filter = filter)
+
+    else:
+      users = User.query.filter_by(adm = 1).order_by(User.nome).all()
+      return render_template('adm/perfil.html', users=users)
 
   else:
     if Passageiro.query.filter_by(id = current_user.id).count() == 1: 
@@ -54,7 +75,7 @@ def cadastro():
 # EDITAR - ADMINISTRADOR
 @bp_adm.route('/editar/<int:id>', methods=['POST'])
 @login_required
-def update_adm(id): 
+def update(id): 
   nome = request.form.get('nome')
   email = request.form.get('email')
   data_nasc = request.form.get('data_nasc')
@@ -64,7 +85,12 @@ def update_adm(id):
   user = User.query.get(id)
   user.nome = nome
   user.data_nasc = data_nasc
-  user.status = bool(status)
+
+  if status == "True":
+    user.status = 1
+  
+  else:
+    user.status = 0
 
   if User.query.filter_by(email = email).count() == 1 and User.query.filter_by(tel = tel).count() == 1:
     db.session.commit()
@@ -116,13 +142,38 @@ def update_senha(id):
       return redirect(url_for('adm.perfil'))
 
 # LISTAGEM - PASSAGEIROS
-@bp_adm.route('/passageiros', methods=['GET'])
+@bp_adm.route('/passageiros', methods=['GET','POST'])
 @login_required
 def recovery_passg():
   if current_user.adm == 1:
-    users = User.query.all()
-    passgs = Passageiro.query.all()
-    return render_template('adm/recovery_passg.html', users=users, passgs=passgs)
+    if request.form.get('search') != None:
+      filter = request.form.get('filter')
+      search = request.form.get('search')
+
+      if filter == "id":
+        passgs = Passageiro.query.all()
+        users = User.query.join(Passageiro).filter(User.id.like(f'%{search}%')).order_by(User.nome).all()
+        return render_template('adm/recovery_passg.html', users = users, passgs = passgs, search = search, filter = filter)
+
+      elif filter == "nome":
+        passgs = Passageiro.query.all()
+        users = User.query.join(Passageiro).filter(User.nome.like(f'%{search}%')).order_by(User.nome).all()
+        return render_template('adm/recovery_passg.html', users = users, passgs = passgs, search = search, filter = filter)
+
+      elif filter == "email":
+        passgs = Passageiro.query.all()
+        users = User.query.join(Passageiro).filter(User.email.like(f'%{search}%')).order_by(User.nome).all()
+        return render_template('adm/recovery_passg.html', users = users, passgs = passgs, search = search, filter = filter)
+
+      elif filter == "tel":
+        passgs = Passageiro.query.all()
+        users = User.query.join(Passageiro).filter(User.tel.like(f'%{search}%')).order_by(User.nome).all()
+        return render_template('adm/recovery_passg.html', users = users, passgs = passgs, search = search, filter = filter)
+
+    else:
+      passgs = Passageiro.query.all()
+      users = User.query.join(Passageiro).order_by(User.nome).all()
+      return render_template('adm/recovery_passg.html', users = users, passgs = passgs)
 
   else:
     if Passageiro.query.filter_by(id = current_user.id).count() == 1: 
@@ -146,7 +197,13 @@ def update_passg(id):
   passg = Passageiro.query.get(id)
   user.nome = nome
   user.data_nasc = data_nasc
-  user.status = bool(status)
+  
+  if status == "True":
+    user.status = 1
+  
+  else:
+    user.status = 0
+
   passg.deficiencia = deficiencia
 
   if User.query.filter_by(email = email).count() == 1 and User.query.filter_by(tel = tel).count() == 1:
@@ -172,26 +229,45 @@ def update_passg(id):
     db.session.commit()
     flash("Dados atualizados com sucesso!","success")
     return redirect(url_for('adm.recovery_passg'))
-
-# DELETAR - PASSAGEIROS
-@bp_adm.route('/passageiros/desativar/<int:id>', methods=['POST'])
-@login_required
-def delete_passg(id): 
-  user = User.query.get(id)
-  user.status = 0
-  db.session.commit()
-
-  flash('Cadastro desativado com sucesso!', "success")
-  return redirect('/administrador/passageiros')
       
 # LISTAGEM - MOTORISTAS
-@bp_adm.route('/motoristas', methods=['GET'])
+@bp_adm.route('/motoristas', methods=['GET','POST'])
 @login_required
 def recovery_moto():
   if current_user.adm == 1:
-    users = User.query.all()
-    moto = Motorista.query.all()
-    return render_template('adm/recovery_moto.html', users=users, moto=moto)
+    if request.form.get('search') != None:
+      filter = request.form.get('filter')
+      search = request.form.get('search')
+
+      if filter == "id":
+        motos = Motorista.query.all()
+        users = User.query.join(Motorista).filter(User.id.like(f'%{search}%')).order_by(User.nome).all()
+        return render_template('adm/recovery_moto.html', users = users, motos = motos, search = search, filter = filter)
+
+      elif filter == "nome":
+        motos = Motorista.query.all()
+        users = User.query.join(Motorista).filter(User.nome.like(f'%{search}%')).order_by(User.nome).all()
+        return render_template('adm/recovery_moto.html', users = users, motos = motos, search = search, filter = filter)
+    
+      elif filter == "email":
+        motos = Motorista.query.all()
+        users = User.query.join(Motorista).filter(User.email.like(f'%{search}%')).order_by(User.nome).all()
+        return render_template('adm/recovery_moto.html', users = users, motos = motos, search = search, filter = filter)
+    
+      elif filter == "tel":
+        motos = Motorista.query.all()
+        users = User.query.join(Motorista).filter(User.tel.like(f'%{search}%')).order_by(User.nome).all()
+        return render_template('adm/recovery_moto.html', users = users, motos = motos, search = search, filter = filter)
+    
+      elif filter == "cnh":
+        motos = Motorista.query.all()
+        users = User.query.join(Motorista).filter(User.cnh.like(f'%{search}%')).order_by(User.nome).all()
+        return render_template('adm/recovery_moto.html', users = users, motos = motos, search = search, filter = filter)
+
+    else:
+      motos = Motorista.query.all()
+      users = User.query.join(Motorista).order_by(User.nome).all()
+      return render_template('adm/recovery_moto.html', users = users, motos = motos)
 
   else:
     if Passageiro.query.filter_by(id = current_user.id).count() == 1: 
@@ -215,7 +291,12 @@ def update_moto(id):
   moto = Motorista.query.get(id)
   user.nome = nome
   user.data_nasc = data_nasc
-  user.status = bool(status)
+  
+  if status == "True":
+    user.status = 1
+  
+  else:
+    user.status = 0
 
   if User.query.filter_by(email = email).count() == 1 and User.query.filter_by(tel = tel).count() == 1 and Motorista.query.filter_by(cnh = cnh).count() == 1:
     db.session.commit()
@@ -269,24 +350,51 @@ def update_moto(id):
     flash("Dados atualizados com sucesso!","success")
     return redirect(url_for('adm.recovery_moto'))
 
-# DELETAR - MOTORISTAS
-@bp_adm.route('/motoristas/desativar/<int:id>', methods=['POST'])
-@login_required
-def delete_moto(id): 
-  user = User.query.get(id)
-  user.status = 0
-  db.session.commit()
-
-  flash('Cadastro desativado com sucesso!', "success")
-  return redirect('/administrador/motoristas')
-
 # LISTAGEM - VEÍCULOS
-@bp_adm.route('/veiculos', methods=['GET'])
+@bp_adm.route('/veiculos', methods=['GET','POST'])
 @login_required
 def recovery_ve():
   if current_user.adm == 1:
-    ve = Veiculo.query.all()
-    return render_template('adm/recovery_ve.html', ve=ve)
+    if request.form.get('search') != None:
+      if request.form.get('search') != None:
+        filter = request.form.get('filter')
+        search = request.form.get('search')
+
+        if filter == "id":
+          veiculos = Veiculo.query.filter(Veiculo.id.like(f'%{search}%')).order_by(Veiculo.id.desc()).all()
+          return render_template('adm/recovery_ve.html', veiculos = veiculos, search = search, filter = filter)    
+        
+        elif filter == "id_moto":
+          veiculos = Veiculo.query.filter(Veiculo.id_moto.like(f'%{search}%')).order_by(Veiculo.id.desc()).all()
+          return render_template('adm/recovery_ve.html', veiculos = veiculos, search = search, filter = filter)
+
+        elif filter == "placa":
+          veiculos = Veiculo.query.filter(Veiculo.placa.like(f'%{search}%')).order_by(Veiculo.id.desc()).all()
+          return render_template('adm/recovery_ve.html', veiculos = veiculos, search = search, filter = filter)
+        
+        elif filter == "renavam":
+          veiculos = Veiculo.query.filter(Veiculo.renavam.like(f'%{search}%')).order_by(Veiculo.id.desc()).all()
+          return render_template('adm/recovery_ve.html', veiculos = veiculos, search = search, filter = filter)
+        
+        elif filter == "modelo":
+          veiculos = Veiculo.query.filter(Veiculo.modelo.like(f'%{search}%')).order_by(Veiculo.id.desc()).all()
+          return render_template('adm/recovery_ve.html', veiculos = veiculos, search = search, filter = filter)
+        
+        elif filter == "marca":
+          veiculos = Veiculo.query.filter(Veiculo.marca.like(f'%{search}%')).order_by(Veiculo.id.desc()).all()
+          return render_template('adm/recovery_ve.html', veiculos = veiculos, search = search, filter = filter)
+        
+        elif filter == "ano":
+          veiculos = Veiculo.query.filter(Veiculo.ano.like(f'%{search}%')).order_by(Veiculo.id.desc()).all()
+          return render_template('adm/recovery_ve.html', veiculos = veiculos, search = search, filter = filter)
+    
+        elif filter == "cor":
+          veiculos = Veiculo.query.filter(Veiculo.cor.like(f'%{search}%')).order_by(Veiculo.id.desc()).all()
+          return render_template('adm/recovery_ve.html', veiculos = veiculos, search = search, filter = filter)
+    
+    else:
+      veiculos = Veiculo.query.order_by(Veiculo.id.desc()).all()
+      return render_template('adm/recovery_ve.html', veiculos = veiculos)
 
   else:
     if Passageiro.query.filter_by(id = current_user.id).count() == 1: 
@@ -332,17 +440,87 @@ def update_ve(id):
   else:
     ve.placa = placa
     ve.renavam = renavam 
-    db.session.commit()    
+    db.session.commit()
     flash("Dados atualizados com sucesso!","success")
     return redirect(url_for('adm.recovery_ve'))
 
+# LISTAGEM - PAGAMENTOS
+@bp_adm.route('/pagamentos', methods=['GET','POST'])
+@login_required
+def recovery_pag():
+  if current_user.adm == 1:
+    if request.form.get('search') != None:
+      if request.form.get('search') != None:
+        filter = request.form.get('filter')
+        search = request.form.get('search')
+        
+        if filter == "id":
+          pagamentos = Pagamento.query.filter(Pagamento.id.like(f'%{search}%')).order_by(Pagamento.id.desc()).all()
+          return render_template('adm/recovery_pag.html', pagamentos = pagamentos, search = search, filter = filter)    
+        
+        elif filter == "id_pass":
+          pagamentos = Pagamento.query.filter(Pagamento.id_pass.like(f'%{search}%')).order_by(Pagamento.id.desc()).all()
+          return render_template('adm/recovery_pag.html', pagamentos = pagamentos, search = search, filter = filter)    
+        
+        elif filter == "tipo":
+          pagamentos = Pagamento.query.filter(Pagamento.tipo.like(f'%{search}%')).order_by(Pagamento.id.desc()).all()
+          return render_template('adm/recovery_pag.html', pagamentos = pagamentos, search = search, filter = filter)    
+        
+        elif filter == "valor":
+          pagamentos = Pagamento.query.filter(Pagamento.valor.like(f'%{search}%')).order_by(Pagamento.id.desc()).all()
+          return render_template('adm/recovery_pag.html', pagamentos = pagamentos, search = search, filter = filter)    
+        
+    else:
+      pagamentos = Pagamento.query.order_by(Pagamento.id.desc()).all()
+      return render_template('adm/recovery_pag.html', pagamentos = pagamentos)
+
+  else:
+    if Passageiro.query.filter_by(id = current_user.id).count() == 1: 
+      return redirect('/passageiro/perfil')
+
+    elif (Motorista.query.filter_by(id = current_user.id)).count() == 1:
+      return redirect('/motorista/perfil')
+
 # LISTAGEM - VIAGENS
-@bp_adm.route('/viagens', methods=['GET'])
+@bp_adm.route('/viagens', methods=['GET','POST'])
 @login_required
 def recovery_vi():
   if current_user.adm == 1:
-    vi = Viagem.query.all()
-    return render_template('adm/recovery_vi.html', vi=vi)
+    if request.form.get('search') != None:
+      filter = request.form.get('filter')
+      search = request.form.get('search')
+
+      if filter == "id":
+        viagens = Viagem.query.filter(Viagem.id.like(f'%{search}%')).order_by(Viagem.data_hora).all()
+        return render_template('adm/recovery_vi.html', viagens =  viagens, search = search, filter = filter)
+      
+      elif filter == "id_pass":
+        viagens = Viagem.query.filter(Viagem.id_pass.like(f'%{search}%')).order_by(Viagem.data_hora).all()
+        return render_template('adm/recovery_vi.html', viagens =  viagens, search = search, filter = filter)
+    
+      elif filter == "id_moto":
+        viagens = Viagem.query.filter(Viagem.id_moto.like(f'%{search}%')).order_by(Viagem.data_hora).all()
+        return render_template('adm/recovery_vi.html', viagens =  viagens, search = search, filter = filter)
+      
+      elif filter == "id_pag":
+        viagens = Viagem.query.filter(Viagem.id_pag.like(f'%{search}%')).order_by(Viagem.data_hora).all()
+        return render_template('adm/recovery_vi.html', viagens =  viagens, search = search, filter = filter)
+      
+      elif filter == "id_ve":
+        viagens = Viagem.query.filter(Viagem.id_ve.like(f'%{search}%')).order_by(Viagem.data_hora).all()
+        return render_template('adm/recovery_vi.html', viagens =  viagens, search = search, filter = filter)
+      
+      elif filter == "embarque":
+        viagens = Viagem.query.filter(Viagem.embarque.like(f'%{search}%')).order_by(Viagem.data_hora).all()
+        return render_template('adm/recovery_vi.html', viagens =  viagens, search = search, filter = filter)
+      
+      elif filter == "desembarque":
+        viagens = Viagem.query.filter(Viagem.desembarque.like(f'%{search}%')).order_by(Viagem.data_hora).all()
+        return render_template('adm/recovery_vi.html', viagens =  viagens, search = search, filter = filter)
+    
+    else:
+      viagens = Viagem.query.order_by(Viagem.data_hora).all()
+      return render_template('adm/recovery_vi.html', viagens = viagens)
 
   else:
     if Passageiro.query.filter_by(id = current_user.id).count() == 1: 

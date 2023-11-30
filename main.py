@@ -18,6 +18,7 @@ from controllers.viagem import bp_vi
 # CONFIGS
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MAB./2023'
+app.jinja_env.filters['zip'] = zip
 
 # BLUEPRINTS
 app.register_blueprint(bp_user)

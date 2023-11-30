@@ -1,7 +1,7 @@
 # IMPORTS
 from flask import render_template, request, url_for, redirect, flash, Blueprint
 from utils.utils import db
-from utils.models import User, Motorista, Passageiro, Viagem, Veiculo
+from utils.models import User, Motorista, Passageiro, Viagem, Veiculo, Pagamento
 from flask_login import login_required, logout_user, current_user
 import hashlib
 
@@ -81,19 +81,37 @@ def perfil():
       return render_template('moto/perfil.html', moto=moto, viagem=viagem, vi_count=vi_count)
 
 # HISTÓRICO DE VIAGENS
-@bp_moto.route('/historico', methods=['GET'])  
+@bp_moto.route('/historico', methods=['GET','POST'])  
 @login_required
 def historico():
   if current_user.adm == 1:
     return redirect('/administrador/perfil')
 
   else:
-    if (Motorista.query.filter_by(id = current_user.id)).count() == 1:
-      moto = Motorista.query.filter_by(id = current_user.id).first()
-      viagem = Viagem.query.filter_by(id_moto = current_user.id).filter_by(status = 0).order_by(Viagem.id.desc()).all()
-      vi_count = Viagem.query.filter_by(id_moto = current_user.id).count()
-      return render_template('moto/historico.html', moto = moto, viagem = viagem, vi_count = vi_count)
+    if Viagem.query.filter_by(id_moto = current_user.id).filter(Viagem.id_moto != 0).count() == 0:
+      return redirect('/motorista/perfil')
 
+    elif Viagem.query.filter_by(id_moto = current_user.id).filter(Viagem.id_moto != 0).count() >= 1:
+      if request.form.get('search') != None:
+        filter = request.form.get('filter')
+        search = request.form.get('search')
+
+        if filter == "embarque":
+          viagens = (db.session.query(Viagem, User, Pagamento).join(User, Viagem.id_pass == User.id).join(Motorista, Viagem.id_moto == Motorista.id).join(Pagamento, Viagem.id_pag == Pagamento.id).filter(Viagem.id_moto == current_user.id).filter(Viagem.embarque.like(f'%{search}%')).order_by(Viagem.id.desc()).all())
+          return render_template('moto/historico.html', viagens = viagens, search = search, filter = filter)
+
+        elif filter == "desembarque":
+          viagens = (db.session.query(Viagem, User, Pagamento).join(User, Viagem.id_pass == User.id).join(Motorista, Viagem.id_moto == Motorista.id).join(Pagamento, Viagem.id_pag == Pagamento.id).filter(Viagem.id_moto == current_user.id).filter(Viagem.desembarque.like(f'%{search}%')).order_by(Viagem.id.desc()).all())
+          return render_template('moto/historico.html', viagens = viagens, search = search, filter = filter)
+
+        elif filter == "passg":
+          viagens = (db.session.query(Viagem, User, Pagamento).join(User, Viagem.id_pass == User.id).join(Motorista, Viagem.id_moto == Motorista.id).join(Pagamento, Viagem.id_pag == Pagamento.id).filter(Viagem.id_moto == current_user.id).filter(User.nome.like(f'%{search}%')).order_by(Viagem.id.desc()).all())
+          return render_template('moto/historico.html', viagens = viagens, search = search, filter = filter)
+        
+      else:
+        viagens = (db.session.query(Viagem, User, Pagamento).join(User, Viagem.id_pass == User.id).join(Motorista, Viagem.id_moto == Motorista.id).join(Pagamento, Viagem.id_pag == Pagamento.id).filter(Viagem.id_moto == current_user.id).order_by(Viagem.id.desc()).all())
+        return render_template('moto/historico.html', viagens = viagens)
+      
     elif (Motorista.query.filter_by(id = current_user.id)).count() == 1:
       return redirect('/motorista/perfil')
 
@@ -209,19 +227,19 @@ def update_ve():
 
     if Veiculo.query.filter_by(placa = placa).count() == 1 and Veiculo.query.filter_by(renavam = renavam).count() == 1:
       db.session.commit()
-      flash("Dados atualizados com sucesso! Se deseja alterar a cnh, o e-mail e o telefone, tente outros.","success")
+      flash("Dados atualizados com sucesso! Se deseja alterar a placa e o renavam, tente outros.","success")
       return redirect(url_for('moto.update_ve'))
             
     elif Veiculo.query.filter_by(placa = placa).count() == 1 and Veiculo.query.filter_by(renavam = renavam).count() == 0:
       ve.renavam = renavam
       db.session.commit()
-      flash("Dados atualizados com sucesso! Se deseja alterar a cnh e o telefone, tente outros." ,"success")
+      flash("Dados atualizados com sucesso! Se deseja alterar a placa, tente outra." ,"success")
       return redirect(url_for('moto.update_ve'))
         
     elif Veiculo.query.filter_by(placa = placa).count() == 0 and Veiculo.query.filter_by(renavam = renavam).count() == 1:
       ve.placa = placa
       db.session.commit()
-      flash("Dados atualizados com sucesso! Se deseja alterar a cnh e o email, tente outros.","success")
+      flash("Dados atualizados com sucesso! Se deseja alterar o renavam, tente outro.","success")
       return redirect(url_for('moto.update_ve'))
 
     else:

@@ -1,0 +1,85 @@
+{% extends 'layouts/moto/painel.html' %}
+
+{% block title %}
+<title>HISTÓRICO - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<div id="nav-painel" class="col-12 me-0 px-0">
+  <div id="nav-painel-cont" class="mx-auto">
+    <div class="d-block">
+      <h1 id="page-title" class="text-center">HISTÓRICO</h1>
+    </div>
+    <div id="topics" class="container-fluid px-0 mx-0">
+      <div id="topics-cont" class="table-responsive">
+        <form id="search" method="post" action="{{url_for('moto.historico')}}">
+          <p class="d-inline-block me-2"><b>Filtrar por:</b></p>
+          <select class="d-inline-block" name="filter">
+            {% if filter == "embarque" %}
+            <option value="embarque" selected>Embarque</option>
+            {% endif %}
+            {% if filter == "desembarque" %}
+            <option value="desembarque" selected>Desembarque</option>
+            {% endif %}
+            {% if filter == "passg" %}
+            <option value="passg" selected>Passageiro</option>
+            {% endif %}
+            <option value="embarque">Embarque</option>
+            <option value="desembarque">Desembarque</option>
+            <option value="passg">Passageiro</option>
+          </select>
+          <p class="d-inline-block ms-4 me-2"><b>Pesquisar por:</b></p>
+          <input name="search" class="d-inline-block" placeholder="Digite algo..." type="text" value="{{search}}">
+          <button type="submit" class="d-inline-block">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </button>
+        </form>
+        <table class="table mx-auto mb-5 table-borderless table-responsive">
+          <thead>
+            <tr>
+              <th class="px-4 py-3" scope="col">Embarque</th>
+              <th class="px-4 py-3" scope="col">Desembarque</th>
+              <th class="px-4 py-3" scope="col">Pagamento</th>
+              <th class="px-4 py-3" scope="col">Valor</th>
+              <th class="px-4 py-3" scope="col">Data/Hora</th>
+              <th class="px-4 py-3" scope="col">Passageiro</th>
+              <th class="px-4 py-3" scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for viagem, user, pagamento in viagens %}
+                <tr>
+                  <th class="px-4 py-3">{{viagem.embarque}}</th>
+                  <th class="px-4 py-3">{{viagem.desembarque}}</th>
+                  {% if pagamento.tipo == "pix" %}
+                  <th class="px-4 py-3">PIX</th>
+                  {% endif %}
+                  {% if pagamento.tipo == "f" %}
+                  <th class="px-4 py-3">Dinheiro</th>
+                  {% endif %}
+                  <th class="px-4 py-3">{{pagamento.valor}}</th>
+                  <th class="px-4 py-3">{{viagem.data_hora.strftime("%d/%m/%Y - %H:%M")}}</th>
+                  {% if viagem.status == 0 and viagem.aceitacao == 0 %}
+                  <th class="px-4 py-3">{{user.nome}}</th>
+                  {% endif %}
+                  {% if viagem.status == 0 and viagem.aceitacao == 1 %}
+                  <th class="px-4 py-3">{{user.nome}}</th>
+                  {% endif %}
+                  {% if viagem.status == 0 and viagem.aceitacao == 0 %}
+                  <th class="px-4 py-3" style="color:#cf3939">Cancelada</th>
+                  {% endif %}
+                  {% if viagem.status == 0 and viagem.aceitacao == 1 %}
+                  <th class="px-4 py-3" style="color:#2bb76a">Finalizada</th>
+                  {% endif %}
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -53,12 +53,17 @@ def acompanhar_vi_pass():
     
   else:
     if (Passageiro.query.filter_by(id = current_user.id)).count() == 1:
-      viagem = Viagem.query.filter_by(id_pass = current_user.id).filter_by(status = 1).first()
-      pag = Pagamento.query.filter_by(id = viagem.id_pag).first()
-      user_moto = User.query.filter_by(id = viagem.id_moto).first()
-      ve = Veiculo.query.filter_by(id = viagem.id_ve).first()
-      return render_template('vi/acompanhar_vi_pass.html', mapbox_access_token=mapbox_access_token, viagem=viagem, pag=pag, user_moto=user_moto, ve=ve)
+      if (Viagem.query.filter_by(id_pass = current_user.id).filter_by(status = 1)).count() == 0:
+        flash('Viagem finalizada!', "success")
+        return redirect('/passageiro/perfil')
       
+      else:
+        viagem = Viagem.query.filter_by(id_pass = current_user.id).filter_by(status = 1).first()
+        pag = Pagamento.query.filter_by(id = viagem.id_pag).first()
+        user_moto = User.query.filter_by(id = viagem.id_moto).first()
+        ve = Veiculo.query.filter_by(id = viagem.id_ve).first()
+        return render_template('vi/acompanhar_vi_pass.html', mapbox_access_token=mapbox_access_token, viagem=viagem, pag=pag, user_moto=user_moto, ve=ve)
+
     elif (Motorista.query.filter_by(id = current_user.id)).count() == 1:
       return redirect('/motorista/perfil')
 
@@ -142,11 +147,14 @@ def acompanhar_vi_moto():
       return redirect('/passageiro/perfil')
       
     elif (Motorista.query.filter_by(id = current_user.id)).count() == 1:
-      viagem = Viagem.query.filter_by(id_moto = current_user.id).filter_by(status = 1).first()
-      user_pass = User.query.filter_by(id = viagem.id_pass).first()
-      pag = Pagamento.query.filter_by(id = viagem.id_pag).first()
+      if (Viagem.query.filter_by(id_moto = current_user.id).filter_by(status = 1)).count() == 0:
+        return redirect('/motorista/perfil')
       
-      return render_template('vi/acompanhar_vi_moto.html', mapbox_access_token=mapbox_access_token, viagem=viagem, user_pass=user_pass, pag=pag)
+      else:
+        viagem = Viagem.query.filter_by(id_moto = current_user.id).filter_by(status = 1).first()
+        user_pass = User.query.filter_by(id = viagem.id_pass).first()
+        pag = Pagamento.query.filter_by(id = viagem.id_pag).first()
+        return render_template('vi/acompanhar_vi_moto.html', mapbox_access_token=mapbox_access_token, viagem=viagem, user_pass=user_pass, pag=pag)
 
 # FINALIZAR VIAGEM - MOTORISTA
 @bp_vi.route('/finalizar/<int:id>', methods=['POST'])

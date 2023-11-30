@@ -1,0 +1,80 @@
+{% extends 'layouts/adm/painel.html' %}
+
+{% block title %}
+<title>PAGAMENTOS - MAB</title>
+{% endblock %}
+
+{% block conteudo %}
+<div id="nav-painel" class="col-12 me-0 px-0">
+  <div id="nav-painel-cont" class="mx-auto">
+    <div class="d-block">
+      <h1 id="page-title" class="text-center">PAGAMENTOS</h1>
+    </div>
+    <div id="topics" class="container-fluid px-0 mx-0">
+      <div id="topics-cont" class="table-responsive">
+        <h2 id="subtitle" class="p-0 d-inline-block mb-5">Cadastrados</h2>
+        <form id="search" method="post" action="{{url_for('adm.recovery_pag')}}">
+          <p class="d-inline-block me-2"><b>Filtrar por:</b></p>
+          <select class="d-inline-block" name="filter">
+            {% if filter == "id" %}
+            <option value="id" selected>ID</option>
+            {% endif %}
+            {% if filter == "id_pass" %}
+            <option value="id_pass" selected>ID Passageiro</option>
+            {% endif %}
+            {% if filter == "id_vi" %}
+            <option value="id_vi" selected>ID Viagem</option>
+            {% endif %}
+            {% if filter == "tipo" %}
+            <option value="tipo" selected>Tipo</option>
+            {% endif %}
+            {% if filter == "valor" %}
+            <option value="valor" selected>Valor</option>
+            {% endif %}
+            <option value="id">ID</option>
+            <option value="id_pass">ID Passageiro</option>
+            <option value="id_vi">ID Viagem</option>
+            <option value="tipo">Tipo</option>
+            <option value="valor">Valor</option>
+          </select>
+          <p class="d-inline-block ms-4 me-2"><b>Pesquisar por:</b></p>
+          <input name="search" class="d-inline-block" placeholder="Digite algo..." type="text" value="{{search}}">
+          <button type="submit" class="d-inline-block">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </button>
+        </form>
+        <table class="table mx-auto mb-5 table-borderless table-responsive">
+          <thead>
+            <tr>
+              <th class="px-4 py-3" scope="col">ID</th>
+              <th class="px-4 py-3" scope="col">ID Passageiro</th>
+              <th class="px-4 py-3" scope="col">ID Viagem</th>
+              <th class="px-4 py-3" scope="col">Tipo</th>
+              <th class="px-4 py-3" scope="col">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for pag in pagamentos %}
+              <tr>
+                <th class="px-4 py-3">{{pag.id}}</th>
+                <th class="px-4 py-3">{{pag.id_pass}}</th>
+                <th class="px-4 py-3">{{pag.id_vi}}</th>
+                {% if pag.tipo == "pix" %}
+                <th class="px-4 py-3">PIX</th>
+                {% endif %}
+                {% if pag.tipo == "f" %}
+                <th class="px-4 py-3">Dinheiro</th>
+                {% endif %}
+                <th class="px-4 py-3">R$ {{pag.valor}}</th>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

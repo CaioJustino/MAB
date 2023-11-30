@@ -4,26 +4,22 @@
   /* CORES */
   --color1: #3886C1;
   --color2: #164F7A;
-  --color3: #90BCDD;
-  --color4: #2279bb;
-  --color5: #7F7F7F;
-  --color6: #202020;
-  --color8: #303030;
-  --color9: #EEEEEE;
-  --color10: #d6d6d6;
-  --color11: #d05353;
-  --color12: #a9a7a7;
-  --color13: #1B3760;
-  --color14: #FAFCFE;
-  --color15: #747474;
-  --color16: #000000;
-  --color17: #2BB76A;
+  --color3: #2279bb;
+  --color4: #7F7F7F;
+  --color5: #202020;
+  --color6: #303030;
+  --color7: #d6d6d6;
+  --color8: #d05353;
+  --color9: #a9a7a7;
+  --color10: #FAFCFE;
+  --color11: #747474;
+  --color12: #2BB76A;
 }
 
 html {
-  background-color: var(--color14);
+  background-color: var(--color10);
   height: 100%;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 html::-webkit-scrollbar {
@@ -41,8 +37,8 @@ html::-webkit-scrollbar {
 /* NAVBAR */
 
 #nav-home {
-  background-color: var(--color14);
-  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--color10);
+  font-family: 'Poppins', sans-serif;
   font-size: 24px;
 }
 
@@ -53,7 +49,7 @@ html::-webkit-scrollbar {
 
 #nav-home-cont .nav-item a {
   position: relative;
-  color: var(--color12);
+  color: var(--color9);
   transition: 0.5s;
 }
 
@@ -83,8 +79,8 @@ html::-webkit-scrollbar {
 /* FOOTER */
 
 #footer-home {
-  background-color: var(--color4);
-  color: var(--color14);
+  background-color: var(--color3);
+  color: var(--color10);
   padding-top: 80px;
   padding-bottom: 80px;
 }
@@ -99,7 +95,7 @@ html::-webkit-scrollbar {
 
 #bottom-footer {
   padding-top: 80px;
-  border-top: 1px solid var(--color10);
+  border-top: 1px solid var(--color7);
 }
 
 #top-footer #title-footer {
@@ -127,8 +123,8 @@ html::-webkit-scrollbar {
   padding: 135px 0px;
   margin: 0 auto;
   max-width: 1200px;
-  color: var(--color14);
-  font-family: 'Lato', sans-serif;
+  color: var(--color10);
+  font-family: 'Inter', sans-serif;
 }
 
 #top-home-cont h3 {
@@ -138,7 +134,7 @@ html::-webkit-scrollbar {
 }
 
 #top-home-cont h3 span {
-  color: var(--color14);
+  color: var(--color10);
   font-weight: 700;  
 }
 
@@ -152,12 +148,12 @@ html::-webkit-scrollbar {
 #middle-home {
   padding-top: 120px;
   padding-bottom: 120px;
-  background-color: var(--color14);
+  background-color: var(--color10);
   height: 560px;
 }
 
 #middle-home p {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 44px;
   color: var(--color2);
@@ -173,10 +169,10 @@ html::-webkit-scrollbar {
 #middle-home button {
   background-color: var(--color2);
   padding: 20px 60px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 30px;
-  font-weight: 500px;
-  color: var(--color14);
+  font-weight: 500;
+  color: var(--color10);
   border: none;
   transition: 0.5s;
 }
@@ -198,16 +194,16 @@ html::-webkit-scrollbar {
   padding-top: 60px;
   margin: 0px;
   max-width: 570px;
-  color: var(--color14);
-  font-family: 'Lato', sans-serif;
+  color: var(--color10);
+  font-family: 'Inter', sans-serif;
 }
 
 #top-sup-cont h3 {
   margin: 0px;
   font-weight: 700;
   font-size: 72px;
-  font-family: 'Ubuntu', sans-serif;
-  color: var(--color14);
+  font-family: 'Poppins', sans-serif;
+  color: var(--color10);
 }
 
 /* PÁGINA DE ERRO */ 
@@ -219,15 +215,15 @@ html::-webkit-scrollbar {
 
 #erro-pag h1 {
   color: var(--color2);
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 108px;
   margin: 0px;
 }
 
 #erro-pag #p2-erro{
-  color: var(--color6);
-  font-family: 'Lato', sans-serif;
+  color: var(--color5);
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   margin: 0px;
   margin-top: 40px;
@@ -241,10 +237,10 @@ html::-webkit-scrollbar {
 
 #erro-pag button {
   background-color: var(--color2);
-  font-family:'Ubuntu', sans-serif;
+  font-family:'Poppins', sans-serif;
   font-size: 24px;
   font-weight: 600;
-  color: var(--color14);
+  color: var(--color10);
   padding: 15px 40px;
   margin-top: 60px;
   border: none;
@@ -260,7 +256,7 @@ html::-webkit-scrollbar {
 
 .crud form {
   width: 400px;
-  background-color: var(--color14);
+  background-color: var(--color10);
   margin: 0;
   padding: 50px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
@@ -268,29 +264,29 @@ html::-webkit-scrollbar {
 }
 
 .crud h3 {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 40px;
   margin-bottom: 50px;
-  color: var(--color6);
+  color: var(--color5);
   transition: 0.5s;
 }
 
 .crud label {
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 18px;
   padding: 0;
-  color: var(--color12);
+  color: var(--color9);
 }
 
 .crud input {
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  color: var(--color6);
+  color: var(--color5);
   border: 0;
-  border-bottom: 1px solid var(--color12);
+  border-bottom: 1px solid var(--color9);
   padding: 10px 0px 10px 7px;
   outline: none;
   transition: 0.5s;
@@ -302,19 +298,19 @@ html::-webkit-scrollbar {
 .crud input:-webkit-autofill:focus,
 .crud input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
-  background-color: var(--color14); 
+  background-color: var(--color10); 
 }
 
 .crud input::placeholder {
   font-size: 20px;
-  color: var(--color6);
-  font-family: "Lato", sans-serif;
+  color: var(--color5);
+  font-family: 'Inter', sans-serif;
   transition: 0.5s;
 }
 
 .crud input:focus {
   border: none;
-  outline: 1px solid var(--color6);
+  outline: 1px solid var(--color5);
   font-size: 22px;
   transition: 0.5s;
 }
@@ -325,13 +321,13 @@ html::-webkit-scrollbar {
 }
 
 .crud select {
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  color: var(--color6);
+  color: var(--color5);
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid var(--color12);
+  border-bottom: 1px solid var(--color9);
   padding: 10px 0px 10px 7px;
   outline: none;
   -webkit-appearance: none;
@@ -341,14 +337,14 @@ html::-webkit-scrollbar {
 
 .crud select::placeholder {
   font-size: 20px;
-  color: var(--color6);
-  font-family: "Lato", sans-serif;
+  color: var(--color5);
+  font-family: 'Inter', sans-serif;
   transition: 0.5s;
 }
 
 .crud select:focus {
   border: none;
-  outline: 1px solid var(--color6);
+  outline: 1px solid var(--color5);
   font-size: 22px;
   transition: 0.5s;
 }
@@ -369,10 +365,10 @@ html::-webkit-scrollbar {
 }
 
 .crud button {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 24px;
-  color: var(--color14);
+  color: var(--color10);
   border: none;
   background-color: var(--color1);
   padding: 10px 0px;
@@ -391,10 +387,10 @@ html::-webkit-scrollbar {
 }
 
 .crud p {
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  color: var(--color6);
+  color: var(--color5);
   transition: 0.5s;
 }
 
@@ -404,7 +400,7 @@ html::-webkit-scrollbar {
 }
 
 .crud a:focus {
-  outline: 3px solid var(--color6);
+  outline: 3px solid var(--color5);
   transition: 0.5s;
 }
 
@@ -455,11 +451,11 @@ html::-webkit-scrollbar {
 /* NAVBAR - PAINEL */
 
 #nav-painel-main {
-  background-color: var(--color14);
+  background-color: var(--color10);
 }
 
 #nav-painel-menu {
-  background-color: var(--color4);
+  background-color: var(--color3);
   width: 100px;
   position: fixed;
   display: block;
@@ -469,6 +465,8 @@ html::-webkit-scrollbar {
   overflow-y: scroll;
   height: 100vh;
   transition: all 1s;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color7);
 }
 
 #nav-painel-menu::-webkit-scrollbar {
@@ -482,17 +480,18 @@ html::-webkit-scrollbar {
 
 #nav-painel-menu::-webkit-scrollbar-thumb {
   border-radius: 50px;
-  background-image: linear-gradient(180deg, var(--color10) 0%, var(--color10) 100%);
-}
-
-#nav-painel-menu:hover::-webkit-scrollbar {
-  display: block;
+  background-image: linear-gradient(180deg, var(--color7) 0%, var(--color7) 100%);
 }
 
 #nav-painel-menu:hover {
   width: 320px;
   transition: all 1s;
 }
+
+#nav-painel-menu:hover::-webkit-scrollbar {
+  display: block;
+}
+
 
 #nav-painel-menu-mb {
   position: relative;
@@ -510,14 +509,14 @@ html::-webkit-scrollbar {
 }
 
 #nav-painel-menu #logo img {
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   width: 80px;
 }
 
 #nav-painel-menu #nav-item {
   padding-top: 16px;
   padding-bottom: 12px;
-  width: 250px;
+  width: 265px;
   margin-left: 32px;
   display: table;
 }
@@ -529,22 +528,22 @@ html::-webkit-scrollbar {
 
 #nav-painel-menu #nav-item p {
   font-size: 20px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
-  color: var(--color14);
+  color: var(--color10);
   vertical-align: middle;
   margin-bottom: 0px;
   transition: 0.5s;
 }
 
 .logout-item {
-  margin-top: 150px;
+  margin-top: 200px;
 }
 
 /* PAINEL - GERAL */
 
 #nav-painel {
-  background-color: var(--color14);
+  background-color: var(--color10);
   position: absolute;
 }
 
@@ -558,17 +557,17 @@ html::-webkit-scrollbar {
 }
 
 #nav-painel #name-user p {
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 30px;
-  color: var(--color15);
+  color: var(--color11);
   margin-top: 3px;
 }
 
 #nav-painel #page-title {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 48px;
-  color: var(--color6);
+  color: var(--color5);
 }
 
 #topics .crud {
@@ -578,267 +577,291 @@ html::-webkit-scrollbar {
 /* PAINEL - TABELAS */
 
 #search {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: var(--color1);
-    border: none;
-    border-bottom: 2px solid var(--color5);
-    padding: 5px;
-    outline: none;
-    transition: 0.5s;
-    background: none;
-    width: 100%;
-    padding: 8px 10px 8px 10px;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: var(--color5);
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-#search:focus {
-    color: var(--color1);
-    border-bottom: 2px solid var(--color6);
-    font-size: 18px;
-    transition: 0.5s;
+#search input {
+  border: 0;
+  border-bottom: 1px solid var(--color9);
+  padding: 5px;
+  outline: none;
+  transition: 0.5s;
+  background-color: transparent;
+  width: 300px;
 }
 
-#search:focus::placeholder {
-    font-size: 18px;
-    transition: 0.5s;
+#search select {
+  background-color: transparent;
+  border: 0;
+  border: 1px solid var(--color9);
+  padding: 5px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 150px;
+  transition: 0.5s;
 }
 
-#search::placeholder {
-    font-size: 16px;
-    color: var(--color3);
-    font-family: "Open Sans", sans-serif;
+#search select::placeholder, #search input::placeholder {
+  font-size: 16px;
+  color: var(--color5);
+  font-family: 'Inter', sans-serif;
+}
+
+#search select:focus, #search input:focus {
+  font-size: 18px;
+  transition: 0.5s;
+}
+
+#search select:focus::placeholder, #search input:focus::placeholder {
+  font-size: 18px;
+  transition: 0.5s;
+}
+
+#search button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color10);
+  background-color: var(--color3);
+  border: none;
+  border-radius: 100%;
+  padding: 6px 9px;
+  margin-left: 10px;
+  transition: 0.5s;
+}
+
+#search button:hover {
+  background-color: var(--color2);
+  transition: 0.5s;
+}
+
+#search button svg {
+  width: 20px;
 }
 
 #topics {
-    margin-top: 100px;
-    margin-bottom: 250px;
+  margin-top: 100px;
+  margin-bottom: 250px;
 }
 
 #topics #topics-cont {
-    background-color: var(--color2);
-    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.25);
-    padding: 50px;
+  background-color: var(--color10);
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.25);
+  padding: 50px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color1);
+}
+
+#topics #topics-cont::-webkit-scrollbar {
+  width: 10px;
+}
+
+#topics #topics-cont::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+#topics #topics-cont::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(180deg, var(--color3) 0%, var(--color3) 100%);
 }
 
 #topics #subtitle {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 30px;
-    color: var(--color4);
-    margin-bottom: 0px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--color3);
+  margin-bottom: 0px;
 }
 
 #topics #subtitle svg {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 #topics #topics-cont table  {
-    font-family: 'Open sans', sans-serif;
-    width: 100%;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
 }
 
 #topics #topics-cont table thead th {
-    color: var(--color7);
-    font-weight: 600;
-    font-size: 18px;
-    border-bottom: 0.5px solid var(--color5);
+  color: var(--color5);
+  font-weight: 600;
+  font-size: 18px;
+  border-bottom: 0.5px solid var(--color4);
 }
 
 #topics #topics-cont table tbody th {
-    background-color: var(--color2);
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--color3);
-    border-bottom: 0.5px solid var(--color5);
-    vertical-align: middle;
+  background-color: var(--color10);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color5);
+  border-bottom: 0.5px solid var(--color4);
+  vertical-align: middle;
 }
 
 #topics #topics-cont table tbody a {
-    text-decoration: none;
-    color: #3d6bc7;
+  text-decoration: none;
+  color: #3d6bc7;
 }
 
 #add-user-btn {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    color: var(--color2);
-    background-color: var(--color8);
-    border: none;
-    padding: 8px 12px 6px 12px;
-    transition: 0.5s;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color10);
+  background-color: var(--color12);
+  border: none;
+  padding: 8px 12px 6px 12px;
+  transition: 0.5s;
 }
 
 #add-user-btn svg {
-    padding-bottom: 4px;
+  padding-bottom: 4px;
 }
 
 #add-user-btn:hover {
-    font-size: 20px;
-    padding: 10px 14px 8px 14px;
-    transition: 0.5s;
+  font-size: 20px;
+  padding: 10px 14px 8px 14px;
+  transition: 0.5s;
 }
 
 #att-icon, #del-icon, #ats-icon {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* POP-UPS COM FORMULÁRIOS */
 
 .crud_pop_up {
-    display: none;
+  display: none;
 }
 
 .crud_pop_up form {
-    width: 400px;
-    background-color: var(--color2);
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 80px;
-    padding: 50px;
-    box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.25);
+  width: 400px;
+  background-color: var(--color10);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.25);
 }
 
 .crud_pop_up form h3 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 36px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
 }
 
 .crud_pop_up form label {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: var(--color10);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 0;
+  color: var(--color9);
 }
 
 .crud_pop_up form input {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: var(--color1);
-    border: none;
-    border-bottom: 2px solid var(--color5);
-    padding: 5px;
-    outline: none;
-    transition: 0.5s;
-    background: none;
-    padding: 12px 10px 12px 10px;
-}
-
-.crud_pop_up form input[type=file]  {  
-    background-image: url('/img/icons/up-file-icon.svg');
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 50px;
-}
-
-.crud_pop_up form input[type=file]::file-selector-button  {  
-    display: none;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: var(--color5);
+  border: 0;
+  border-bottom: 1px solid var(--color9);
+  padding: 10px 0px 10px 7px;
+  outline: none;
+  transition: 0.5s;
+  background-color: transparent;
 }
 
 .crud_pop_up form input::placeholder {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: var(--color3);
+  font-size: 16px;
+  color: var(--color5);
+  font-family: 'Inter', sans-serif;
+  transition: 0.5s;
 }
 
 .crud_pop_up form input:focus {
-    border-bottom: 2px solid var(--color6);
-    font-size: 18px;
-    transition: 0.5s;
+  border: none;
+  outline: 1px solid var(--color5);
+  font-size: 18px;
+  transition: 0.5s;
 }
 
 .crud_pop_up form input:focus::placeholder {
-    font-size: 18px;
-    transition: 0.5s;
+  font-size: 18px;
+  transition: 0.5s;
 }
 
 .crud_pop_up input:-webkit-autofill,
 .crud_pop_up input:-webkit-autofill:hover,
 .crud_pop_up input:-webkit-autofill:focus,
 .crud_pop_up input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: var(--color10);
 }
 
 .crud_pop_up form select {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: var(--color1);
-    border: none;
-    border-radius: 0;
-    outline: none;
-    border-bottom: 2px solid var(--color5);
-    transition: 0.5s;
-    background: none;
-    padding: 12px 10px 12px 10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--color5);
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color9);
+  padding: 10px 0px 10px 7px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: 0.5s;
 }
 
 .crud_pop_up form select:focus {
-    box-shadow: none;
-    border-bottom: 2px solid var(--color6);
-    font-size: 18px;
-    transition: 0.5s;
-}
-
-.crud_pop_up form textarea {
-    color: var(--color1);
-    border: none;
-    border-bottom: 2px solid var(--color5);
-    padding: 5px;
-    outline: none;
-    transition: 0.5s;
-    background: none;
-    padding: 12px 10px 12px 10px;
-}
-
-.crud_pop_up form textarea:focus {
-    border-bottom: 2px solid var(--color6);
-    font-size: 18px;
-    transition: 0.5s;
+  border: none;
+  outline: 1px solid var(--color5);
+  font-size: 18px;
+  transition: 0.5s;
 }
 
 .crud_pop_up form button {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    color: var(--color2);
-    border: none;
-    background-color: var(--color1);
-    padding: 10px 0px;
-    transition: 0.5s;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color10);
+  border: none;
+  background-color: var(--color1);
+  padding: 10px 0px;
+  transition: 0.5s;
+}
+
+.crud_pop_up button:focus {
+  transition: 0.5s;
 }
 
 .crud_pop_up form button:hover {
-    background-color: var(--color6);
-    padding: 12px 0px;
-    font-size: 20px;
-    transition: 0.5s;
+  background-color: var(--color2);
+  padding: 12px 0px;
+  font-size: 22px;
+  transition: 0.5s;
 }
 
 #crud-close-icon {
-    cursor: pointer;
-    position: relative;
-    top: -15px;
-    right: -15px;
-}
-
-.crud_pop_up form p {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: var(--color3);
-    padding-top: 40px;
+  cursor: pointer;
+  position: relative;
+  top: -5px;
+  right: -5px;
 }
 
 #open-form {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(0 0 0 / 0.5);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 0.5);
 }
 
 /* PÁGINA DE PERFIL - PASSAGEIRO E MOTORISTA */
@@ -850,10 +873,10 @@ html::-webkit-scrollbar {
 }
 
 #topics #perfil-vi-atalho button {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 30px;
-  color: var(--color14);
+  color: var(--color10);
   border: none;
   background-color: var(--color1);
   padding: 12px 18px;
@@ -861,7 +884,7 @@ html::-webkit-scrollbar {
 }
 
 #topics #perfil-vi-atalho button:focus {
-  outline: 1px solid var(--color6);
+  outline: 1px solid var(--color5);
   transition: 0.5s;
 }
 
@@ -882,22 +905,22 @@ html::-webkit-scrollbar {
 }
 
 #topics #historico {
-  background: var(--color14);
+  background: var(--color10);
   padding: 30px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   margin: 30px 0px 0px 0px;
 }
 
 #topics #historico #title {
-  color: var(--color6);
-  font-family: 'Lato', sans-serif;
+  color: var(--color5);
+  font-family: 'Inter', sans-serif;
   font-size: 30px;
   font-weight: 600;
   margin: 0;
 }
 
 #topics #historico-item  {
-  background: var(--color14);
+  background: var(--color10);
   padding: 30px 20px;
   text-align: center;
   width: 60%;
@@ -906,8 +929,8 @@ html::-webkit-scrollbar {
 }
 
 #topics #historico-item p {
-  color: var(--color6);
-  font-family: 'Lato', sans-serif;
+  color: var(--color5);
+  font-family: 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 400;
 }
@@ -918,16 +941,16 @@ html::-webkit-scrollbar {
 }
 
 #topics #historico-item #cancelada {
-  color: var(--color11);
+  color: var(--color8);
 }
 
 #topics #historico-item #finalizada {
-  color: var(--color17);
+  color: var(--color12);
 }
 
 #empty-historic {
-  color: var(--color6);
-  font-family: 'Lato', sans-serif;
+  color: var(--color5);
+  font-family: 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 400;
 }
@@ -935,7 +958,7 @@ html::-webkit-scrollbar {
 #historico a {
   text-decoration: none;
   color: var(--color1);
-  font-family: 'Lato', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 20px;
 }
 
@@ -954,7 +977,7 @@ html::-webkit-scrollbar {
   bottom: 0;
   width: 100vw;
   height: 450px;
-  background-color: var(--color14);
+  background-color: var(--color10);
 }
 
 #solicitar-cont {
@@ -968,30 +991,30 @@ html::-webkit-scrollbar {
 }
 
 #solicitar-cont h3 {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 30px;
   text-align: center;
   padding: 0;
   margin-bottom: 30px;
-  color: var(--color6);
+  color: var(--color5);
 }
 
 #solicitar-cont label {
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 18px;
   padding: 0;
-  color: var(--color15);
+  color: var(--color11);
 }
 
 #solicitar-cont input {
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  color: var(--color6);
+  color: var(--color5);
   border: 0;
-  border-bottom: 1px solid var(--color12);
+  border-bottom: 1px solid var(--color9);
   padding: 10px 0px 10px 7px;
   background: transparent;
 }
@@ -1001,19 +1024,19 @@ html::-webkit-scrollbar {
 #solicitar-cont input:-webkit-autofill:focus,
 #solicitar-cont input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
-  background-color: var(--color14); 
+  background-color: var(--color10); 
 }
 
 #solicitar-cont input::placeholder {
   font-size: 20px;
-  color: var(--color6);
-  font-family: "Lato", sans-serif;
+  color: var(--color5);
+  font-family: 'Inter', sans-serif;
   transition: 0.5s;
 }
 
 #solicitar-cont input:focus {
   border: none;
-  outline: 1px solid var(--color6);
+  outline: 1px solid var(--color5);
   font-size: 22px;
   transition: 0.5s;
 }
@@ -1024,13 +1047,13 @@ html::-webkit-scrollbar {
 }
 
 #solicitar-cont select {
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  color: var(--color6);
+  color: var(--color5);
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid var(--color12);
+  border-bottom: 1px solid var(--color9);
   padding: 10px 0px 10px 7px;
   outline: none;
   -webkit-appearance: none;
@@ -1040,14 +1063,14 @@ html::-webkit-scrollbar {
 
 #solicitar-cont select::placeholder {
   font-size: 20px;
-  color: var(--color6);
-  font-family: "Lato", sans-serif;
+  color: var(--color5);
+  font-family: 'Inter', sans-serif;
   transition: 0.5s;
 }
 
 #solicitar-cont select:focus {
   border: none;
-  outline: 1px solid var(--color6);
+  outline: 1px solid var(--color5);
   font-size: 22px;
   transition: 0.5s;
 }
@@ -1073,10 +1096,10 @@ html::-webkit-scrollbar {
 }
 
 #solicitar-cont button {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 24px;
-  color: var(--color14);
+  color: var(--color10);
   border: none;
   background-color: var(--color1);
   padding: 10px 0px;
@@ -1100,7 +1123,7 @@ html::-webkit-scrollbar {
   bottom: 0;
   width: 100vw;
   height: 450px;
-  background-color: var(--color14);
+  background-color: var(--color10);
 }
 
 #acompanhar-vi-cont, #acompanhar-vi #update-vi, #acompanhar-vi #cancelar-vi {
@@ -1114,39 +1137,39 @@ html::-webkit-scrollbar {
 }
 
 #acompanhar-vi h3 {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 30px;
   text-align: center;
   padding: 0;
   margin-bottom: 30px;
-  color: var(--color6);
+  color: var(--color5);
 }
 
 #acompanhar-vi label {
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 18px;
   padding: 0;
-  color: var(--color15);
+  color: var(--color11);
 }
 
 #acompanhar-vi input {
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  color: var(--color6);
+  color: var(--color5);
   border: 0;
-  border-bottom: 1px solid var(--color12);
+  border-bottom: 1px solid var(--color9);
   padding: 10px 0px 10px 7px;
   background: transparent;
 }
 
 #acompanhar-vi p {
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  color: var(--color6);
+  color: var(--color5);
   border: 0;
 }
 
@@ -1158,10 +1181,10 @@ html::-webkit-scrollbar {
 
 #acompanhar-vi-cont button, #acompanhar-vi #update-vi button,
 #acompanhar-vi #cancelar-vi button {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 24px;
-  color: var(--color14);
+  color: var(--color10);
   border: none;
   background-color: var(--color1);
   padding: 10px 0px;
@@ -1185,7 +1208,7 @@ html::-webkit-scrollbar {
 #acompanhar-vi #cancelar-vi #cancelar-vi-btn {
   color: var(--color1);
   border: none;
-  background-color: var(--color14);
+  background-color: var(--color10);
 }
 
 /* STATUS */
@@ -1195,10 +1218,10 @@ html::-webkit-scrollbar {
 }
 
 #acompanhar-vi-status p {
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 400;
-  color: var(--color14);
+  color: var(--color10);
 }
 
 /* EDITAR */
@@ -1216,19 +1239,19 @@ html::-webkit-scrollbar {
 #acompanhar-vi input:-webkit-autofill:focus,
 #acompanhar-vi input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
-  background-color: var(--color14); 
+  background-color: var(--color10); 
 }
 
 #acompanhar-vi input::placeholder {
   font-size: 20px;
-  color: var(--color6);
-  font-family: "Lato", sans-serif;
+  color: var(--color5);
+  font-family: 'Inter', sans-serif;
   transition: 0.5s;
 }
 
 #acompanhar-vi input:focus {
   border: none;
-  outline: 1px solid var(--color6);
+  outline: 1px solid var(--color5);
   font-size: 22px;
   transition: 0.5s;
 }
@@ -1239,13 +1262,13 @@ html::-webkit-scrollbar {
 }
 
 #acompanhar-vi select {
-  font-family: "Lato", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  color: var(--color6);
+  color: var(--color5);
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid var(--color12);
+  border-bottom: 1px solid var(--color9);
   padding: 10px 0px 10px 7px;
   outline: none;
   -webkit-appearance: none;
@@ -1255,14 +1278,14 @@ html::-webkit-scrollbar {
 
 #acompanhar-vi select::placeholder {
   font-size: 20px;
-  color: var(--color6);
-  font-family: "Lato", sans-serif;
+  color: var(--color5);
+  font-family: 'Inter', sans-serif;
   transition: 0.5s;
 }
 
 #acompanhar-vi select:focus {
   border: none;
-  outline: 1px solid var(--color6);
+  outline: 1px solid var(--color5);
   font-size: 22px;
   transition: 0.5s;
 }

@@ -22,7 +22,7 @@
     </div>
     <div class="d-inline-block col-6">
       <label class="container-fluid mt-4">Pagamento:</label>
-      <input class="container-fluid" value="{% if pag.tipo == 'pix' %}PIX{% endif %}{% if pag.tipo == 'f' %}Físico{% endif %}" disabled>
+      <input class="container-fluid" value="{% if pag.tipo == 'pix' %}PIX{% endif %}{% if pag.tipo == 'f' %}Dinheiro{% endif %}" disabled>
     </div>
     <div class="d-inline-block col-6">
       <label class="container-fluid mt-4">Valor:</label>
@@ -74,10 +74,10 @@
         <select class="container-fluid" name="tipo" required>
           {% if pag.tipo == "pix" %}
             <option value="{{pag.tipo}}">PIX</option>
-            <option value="f">Físico</option>
+            <option value="f">Dinheiro</option>
           {% endif %}
           {% if pag.tipo == "f" %}
-            <option value="{{pag.tipo}}">Físico</option>
+            <option value="{{pag.tipo}}">Dinheiro</option>
             <option value="pix">PIX</option>
           {% endif %}
         </select><br>
