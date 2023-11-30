@@ -1,4 +1,4 @@
-**MAB - Mobilidade Acessível Brasileira**
+## MAB - Mobilidade Acessível Brasileira
 
 ## Introdução
 
@@ -17,7 +17,7 @@ Siga estas instruções para configurar e executar o MAB em seu ambiente local.
 1. Clone este repositório em seu sistema:
 
    ```bash
-   git clone 
+   git clone https://github.com/<seu-usuario>/MAB-TCC.git
    ```
 
 2. Navegue até o diretório do projeto:
