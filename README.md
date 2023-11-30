@@ -32,13 +32,25 @@ Siga estas instruções para configurar e executar o MAB em seu ambiente local.
    pip install -r requirements.txt
    ```
 
-4. Inicie o aplicativo:
+4. Inicie o banco de dados:
+
+   ```bash
+   flask db init
+   ```
+   ```bash
+   flask db migrate
+   ```
+   ```bash
+   flask db upgrade
+   ```
+
+5. Inicie o aplicativo:
 
    ```bash
    flask run --host=0.0.0.0
    ```
 
-5. Acesse o MAB no seu navegador em `http://127.0.0.1:5000`.
+6. Acesse o MAB no seu navegador em `http://127.0.0.1:5000`.
 
 ## Utilização
 
