@@ -5,6 +5,7 @@ from utils.utils import db
 from utils.models import User, Passageiro, Viagem, Motorista, Pagamento
 from flask_login import login_required, logout_user, current_user
 import hashlib
+from datetime import datetime
 
 # CONFIGS
 bp_pass = Blueprint("pass", __name__, template_folder="templates")
@@ -30,6 +31,7 @@ def cadastro():
     nome = request.form.get('nome')
     email = request.form.get('email')
     data_nasc = request.form.get('data_nasc')
+    data_nasc_db = datetime.strptime(data_nasc, '%Y-%m-%d').date()
     tel = request.form.get('tel')
     senha = request.form.get('senha')
     csenha = request.form.get('csenha')
@@ -46,7 +48,7 @@ def cadastro():
 
       else:
         senha = hashlib.md5(request.form.get('senha').encode()).hexdigest()
-        u = User(nome, data_nasc, email, tel, senha, False, True)
+        u = User(nome, data_nasc_db, email, tel, senha, False, True)
         db.session.add(u)
         db.session.commit()
         passg = Passageiro(u.id, deficiencia)
@@ -128,13 +130,14 @@ def update():
     nome = request.form.get('nome')
     email = request.form.get('email')
     data_nasc = request.form.get('data_nasc')
+    data_nasc_db = datetime.strptime(data_nasc, '%Y-%m-%d').date()
     tel = request.form.get('tel')
     deficiencia = request.form.get('deficiencia')
     
     user = User.query.filter_by(id = current_user.id).first()
     passg = Passageiro.query.filter_by(id = current_user.id).first()
     user.nome = nome
-    user.data_nasc = data_nasc
+    user.data_nasc = data_nasc_db
     passg.deficiencia = deficiencia
 
     if User.query.filter_by(email = email).count() == 1 and User.query.filter_by(tel = tel).count() == 1:

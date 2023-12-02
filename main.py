@@ -28,8 +28,8 @@ app.register_blueprint(bp_moto, url_prefix='/motorista')
 app.register_blueprint(bp_vi, url_prefix='/viagem')
 
 # DATABASE
-conexao = "mysql+pymysql://root@localhost/mab"
-# conexao = "sqlite:///mabdb.db"
+# conexao = "mysql+pymysql://root@localhost/mab"
+conexao = "sqlite:///mabdb.db"
 app.config['SQLALCHEMY_DATABASE_URI'] = conexao
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
@@ -112,7 +112,7 @@ def suporte():
 def acesso_negado(e):
   c = 401
   de = "Seu acesso a esta página foi negado."
-  return render_template('erro.html', c = c, de = de), 404
+  return render_template('erro.html', c = c, de = de), 401
 
 @app.errorhandler(404)
 def page_n_encontrada(e):
@@ -124,6 +124,6 @@ def page_n_encontrada(e):
 def page_internt_error(e):
   c = 500
   de = "Dificuldade de processamento do servidor a partir de uma incompatibilidade ou configuração incorreta."
-  return render_template('erro.html', c = c, de = de ), 404  
+  return render_template('erro.html', c = c, de = de ), 500  
 
 app.run(host='0.0.0.0', port=81)

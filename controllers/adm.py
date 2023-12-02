@@ -4,6 +4,7 @@ from utils.utils import db
 from utils.models import User, Passageiro, Motorista, Veiculo, Viagem, Pagamento
 from flask_login import login_required, current_user, logout_user
 import hashlib
+from datetime import datetime
 
 # CONFIGS
 bp_adm = Blueprint("adm", __name__, template_folder="templates")
@@ -50,6 +51,7 @@ def cadastro():
   nome = request.form.get('nome')
   email = request.form.get('email')
   data_nasc = request.form.get('data_nasc')
+  data_nasc_db = datetime.strptime(data_nasc, '%Y-%m-%d').date()
   tel = request.form.get('tel')
   senha = request.form.get('senha')
   csenha = request.form.get('csenha')
@@ -65,7 +67,7 @@ def cadastro():
 
     else:
       senha = hashlib.md5(request.form.get('senha').encode()).hexdigest()
-      u = User(nome, data_nasc, email, tel, senha, True, True)
+      u = User(nome, data_nasc_db, email, tel, senha, True, True)
       db.session.add(u)
       db.session.commit()
 
@@ -79,12 +81,13 @@ def update(id):
   nome = request.form.get('nome')
   email = request.form.get('email')
   data_nasc = request.form.get('data_nasc')
+  data_nasc_db = datetime.strptime(data_nasc, '%Y-%m-%d').date()
   tel = request.form.get('tel')
   status = request.form.get('status')
   
   user = User.query.get(id)
   user.nome = nome
-  user.data_nasc = data_nasc
+  user.data_nasc = data_nasc_db
 
   if status == "True":
     user.status = 1
@@ -189,6 +192,7 @@ def update_passg(id):
   nome = request.form.get('nome')
   email = request.form.get('email')
   data_nasc = request.form.get('data_nasc')
+  data_nasc_db = datetime.strptime(data_nasc, '%Y-%m-%d').date()
   tel = request.form.get('tel')
   status = request.form.get('status')
   deficiencia = request.form.get('deficiencia')
@@ -196,7 +200,7 @@ def update_passg(id):
   user = User.query.get(id)
   passg = Passageiro.query.get(id)
   user.nome = nome
-  user.data_nasc = data_nasc
+  user.data_nasc = data_nasc_db
   
   if status == "True":
     user.status = 1
@@ -283,6 +287,7 @@ def update_moto(id):
   nome = request.form.get('nome')
   email = request.form.get('email')
   data_nasc = request.form.get('data_nasc')
+  data_nasc_db = datetime.strptime(data_nasc, '%Y-%m-%d').date()
   tel = request.form.get('tel')
   status = request.form.get('status')
   cnh = request.form.get('cnh')
@@ -290,7 +295,7 @@ def update_moto(id):
   user = User.query.get(id)
   moto = Motorista.query.get(id)
   user.nome = nome
-  user.data_nasc = data_nasc
+  user.data_nasc = data_nasc_db
   
   if status == "True":
     user.status = 1
