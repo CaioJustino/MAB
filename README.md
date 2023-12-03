@@ -23,7 +23,7 @@ Siga estas instruções para configurar e executar o MAB em seu ambiente local.
 2. Navegue até o diretório do projeto:
 
    ```bash
-   cd mab
+   cd MAB-TCC
    ```
 
 3. Instale as dependências:
