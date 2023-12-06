@@ -99,11 +99,11 @@ def buscar_vi():
 
     else:
       if (Motorista.query.filter_by(id = current_user.id)).count() == 1:
-        if Viagem.query.filter_by(status = 1).filter_by(aceitacao = 0).count() == 0:
+        if Viagem.query.filter_by(status = 1).filter_by(aceitacao = 0).count() == 0 and Viagem.query.filter_by(id_moto = current_user.id).filter_by(status = 1).count() == 0:
           flash('Nenhuma Viagem foi encontrada!', "danger")
           return redirect('/motorista/perfil') 
         
-        elif (Viagem.query.filter_by(id_moto = current_user.id).filter_by(status = 1).count() == 1):
+        elif Viagem.query.filter_by(id_moto = current_user.id).filter_by(status = 1).count() == 1:
           return redirect(url_for('vi.acompanhar_vi_moto')) 
 
         else:
