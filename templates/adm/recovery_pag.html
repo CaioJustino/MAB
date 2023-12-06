@@ -22,9 +22,6 @@
             {% if filter == "id_pass" %}
             <option value="id_pass" selected>ID Passageiro</option>
             {% endif %}
-            {% if filter == "id_vi" %}
-            <option value="id_vi" selected>ID Viagem</option>
-            {% endif %}
             {% if filter == "tipo" %}
             <option value="tipo" selected>Tipo</option>
             {% endif %}
@@ -33,7 +30,6 @@
             {% endif %}
             <option value="id">ID</option>
             <option value="id_pass">ID Passageiro</option>
-            <option value="id_vi">ID Viagem</option>
             <option value="tipo">Tipo</option>
             <option value="valor">Valor</option>
           </select>
@@ -51,7 +47,6 @@
             <tr>
               <th class="px-4 py-3" scope="col">ID</th>
               <th class="px-4 py-3" scope="col">ID Passageiro</th>
-              <th class="px-4 py-3" scope="col">ID Viagem</th>
               <th class="px-4 py-3" scope="col">Tipo</th>
               <th class="px-4 py-3" scope="col">Valor</th>
             </tr>
@@ -61,7 +56,6 @@
               <tr>
                 <th class="px-4 py-3">{{pag.id}}</th>
                 <th class="px-4 py-3">{{pag.id_pass}}</th>
-                <th class="px-4 py-3">{{pag.id_vi}}</th>
                 {% if pag.tipo == "pix" %}
                 <th class="px-4 py-3">PIX</th>
                 {% endif %}
