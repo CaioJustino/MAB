@@ -17,13 +17,13 @@ Siga estas instruções para configurar e executar o MAB em seu ambiente local.
 1. Clone este repositório em seu sistema:
 
    ```bash
-   git clone https://github.com/<seu-usuario>/MAB-TCC.git
+   git clone https://github.com/<seu-usuario>/MAB.git
    ```
 
 2. Navegue até o diretório do projeto:
 
    ```bash
-   cd MAB-TCC
+   cd MAB
    ```
 
 3. Instale as dependências:
