@@ -56,6 +56,14 @@ Siga estas instruções para configurar e executar o MAB em seu ambiente local.
 
 O MAB oferece uma interface acessível e agradável para pessoas com deficiência visual de baixa visão, além de contar com um recurso de leitura sonora próprio, o que contribui ainda mais para a acessibilidade do sistema.
 
+## Linguagens e Ferramentas
+
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=python,flask,html,css,bootstrap,javascript,nodejs,sqlite" />
+  </a>
+</p>
+
 ---
 
 Aproveite o uso do MAB e ajude a promover a acessibilidade no Brasil!
